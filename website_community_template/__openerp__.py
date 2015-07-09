@@ -42,6 +42,7 @@
         'views/templates/signup.xml',
         'views/templates/signup_fields.xml',
         'views/templates/register_template.xml',
+        'views/templates/blog_template.xml',
     ],
     'installable': True
 }
