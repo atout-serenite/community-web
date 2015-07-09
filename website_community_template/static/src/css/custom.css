@@ -65,6 +65,7 @@
             -ms-transition:opacity 250ms ease-out;
              -o-transition:opacity 250ms ease-out;
                 transition:opacity 250ms ease-out;
+        z-index: 50000;
     }
 
 /* <http://css-tricks.com/snippets/css/css-triangle/> */
