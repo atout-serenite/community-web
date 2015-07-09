@@ -29,6 +29,7 @@
     'depends': [
         'auth_signup',
         'website_marketplace',
+        'website_event',
     ],
     'data': [
         'views/templates/home.xml',
