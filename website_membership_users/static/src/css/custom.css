@@ -1,0 +1,5 @@
+div.list-item:not(:first-child) > div.row > div > .list-add.on-first
+{
+    /**/
+    display: none;
+}

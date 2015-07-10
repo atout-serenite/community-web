@@ -35,6 +35,7 @@
         'website_marketplace'
     ],
     'data': [
+        'views/assets.xml',
         'views/templates/profile_edit_template.xml',
         'views/templates/profile_view_template.xml',
         'views/templates/member_list_view.xml',

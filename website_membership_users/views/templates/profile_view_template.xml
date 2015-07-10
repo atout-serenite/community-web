@@ -160,90 +160,60 @@
                     
                     <div class="container">
                         <div class="row">
-                            <!-- <div class="row"> -->
-                                <!-- <div class="col-md-12"> -->
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <div class="col-md-8">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr><th>Skills</th></tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <t t-foreach="partner.skill_category_ids" t-as="category">
-                                                            <tr><td><t t-esc="category.name"/></td></tr>
-                                                        </t>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Skills</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="partner.skill_category_ids" t-as="category">
+                                                    <tr><td><t t-esc="category.name"/></td></tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <div class="col-md-8">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr><th>Interests</th></tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <t t-foreach="partner.skill_tag_ids" t-as="tag">
-                                                            <tr><td><t t-esc="tag.name"/></td></tr>
-                                                        </t>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Interests</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="partner.skill_tag_ids" t-as="tag">
+                                                    <tr><td><t t-esc="tag.name"/></td></tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                <!-- </div> -->
-                            <!-- </div> -->
+                                </div>
+                            </div>
                             <t t-if="partner.see_balance">
-                                <!-- <div class="row"> -->
-                                    <!-- <div class="col-md-12"> -->
-<!--                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan="3">Credit limits</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <t t-foreach="partner.wallet_currency_ids" t-as="limit">
-                                                                <tr>
-                                                                    <td><t t-esc="limit.currency_id and limit.currency_id.name"/></td>
-                                                                    <td><t t-esc="limit.limit_negative_value"/></td>
-                                                                    <td><t t-esc="limit.limit_positive_value"/></td>
-                                                                </tr>
-                                                            </t>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>-->
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan="2">Balance</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <t t-foreach="partner.wallet_balance_ids" t-as="balance">
-                                                                <tr>
-                                                                    <td><t t-esc="balance.available"/></td>
-                                                                    <td><t t-esc="balance.currency_id and balance.currency_id.name"/></td>
-                                                                </tr>
-                                                            </t>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-md-8">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Balance</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <t t-foreach="partner.wallet_balance_ids" t-as="balance">
+                                                        <tr>
+                                                            <td><t t-esc="balance.available"/></td>
+                                                            <td><t t-esc="balance.currency_id and balance.currency_id.name"/></td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                    <!-- </div> -->
-                                <!-- </div> -->
+                                    </div>
+                                </div>
                             </t>
                         </div>
                     </div>
