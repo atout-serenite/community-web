@@ -29,7 +29,8 @@
     'depends': [
         'auth_signup',
         'website',
-        'website_marketplace'
+        'website_marketplace',
+        'website_blog'
     ],
     'data': [
         'views/assets.xml',
@@ -42,6 +43,7 @@
         'views/templates/signup.xml',
         'views/templates/signup_fields.xml',
         'views/templates/register_template.xml',
+        'views/templates/blog_template.xml',
     ],
     'installable': True
 }

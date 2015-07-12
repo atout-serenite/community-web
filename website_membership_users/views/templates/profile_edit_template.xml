@@ -188,13 +188,14 @@
                                                                 </div>
                                                                 <div class="col-xs-2 no-padding-right">
                                                                     <button class="list-remove btn btn-danger"><i class="fa fa-minus"></i></button>
+                                                                    <a href="#" class="list-add btn btn-small btn-primary mb16 on-first"><i class="fa fa-plus"></i></a>
+    
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </t>
                                             </t>
-                                            <a href="#" class="list-add btn btn-small btn-primary mb16"><i class="fa fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -212,83 +213,41 @@
                                                                 </div>
                                                                 <div class="col-xs-2 no-padding-right">
                                                                     <button class="list-remove btn btn-danger"><i class="fa fa-minus"></i></button>
+                                                                    <a href="#" class="list-add btn btn-small btn-primary mb16 on-first"><i class="fa fa-plus"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </t>
                                             </t>
-                                            <a href="#" class="list-add btn btn-small btn-primary mb16"><i class="fa fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <t t-if="partner.see_balance">
-                            <div class="row">
-<!--                                <div class="col-md-12">
+                                <t t-if="partner.see_balance">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label">Credit limits</label>
-                                            <div class="col-md-8 dynamic-list">
-                                                <div class="row">
-                                                    <t t-foreach="['existing', 'new']" t-as="key">
-                                                        <t t-foreach="profile['limits'][key]" t-as="limit">
-                                                            <div class="list-item col-md-12 limit_block">
-                                                                <div class="row">
-                                                                    <div class="col-xs-4 no-padding-right">
-                                                                        <select t-att-name="('limits[%s][%s][currency]' % (key, limit['id']))" class="selectpicker form-control">
-                                                                            <t t-foreach="currencies" t-as="currency">
-                                                                                <option t-att-value="currency[0]" t-att-selected="'selected' if limit['currency'] == currency[0] else ''"><t t-esc="currency[1]"/></option>
-                                                                            </t>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-xs-3 no-padding-right">
-                                                                        <input t-att-name="('limits[%s][%s][min]' % (key, limit['id']))" class="form-control mb16 limit_min_input" type="text" placeholder="min" t-att-value="limit['min']"/>
-                                                                    </div>
-                                                                    <div class="col-xs-3 no-padding-right">
-                                                                        <input t-att-name="('limits[%s][%s][max]' % (key, limit['id']))" class="form-control mb16 limit_max_input" type="text" placeholder="max" t-att-value="limit['max']"/>
-                                                                    </div>
-                                                                    <div class="col-xs-1 no-padding-right">
-                                                                        <button class="list-remove btn btn-danger"><i class="fa fa-minus"></i></button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </t>
-                                                    </t>
-                                                </div>
-                                                <a href="#" class="list-add btn btn-small btn-primary mb16"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                            <t t-if="'limits' in errors">
-                                                <p class="bg-danger">
-                                                    <t t-esc="errors['limits']"/>
-                                                </p>
-                                            </t>
-                                        </div>
-                                    </div>-->
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <div class="col-md-8">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="2">Balance</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <t t-foreach="partner.wallet_balance_ids" t-as="balance">
+                                            <div class="col-md-8">
+                                                <table class="table">
+                                                    <thead>
                                                         <tr>
-                                                            <td><t t-esc="balance.available"/></td>
-                                                            <td><t t-esc="balance.currency_id and balance.currency_id.name"/></td>
+                                                            <th colspan="2">Balance</th>
                                                         </tr>
-                                                    </t>
-                                                </tbody>
-                                            </table>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-foreach="partner.wallet_balance_ids" t-as="balance">
+                                                            <tr>
+                                                                <td><t t-esc="balance.available"/></td>
+                                                                <td><t t-esc="balance.currency_id and balance.currency_id.name"/></td>
+                                                            </tr>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </t>
                             </div>
-                        </t>
+                        </div>
                     </div>
                 </div>
             </section>
