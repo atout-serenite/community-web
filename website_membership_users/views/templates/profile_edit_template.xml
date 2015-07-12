@@ -145,7 +145,7 @@
                             <div class="row">
                                 <label class="col-md-4 control-label" for="gsm">GSM</label>
                                 <div class="col-md-8">
-                                    <input name="mobile" id="gsm" t-att-value="profile['partner']['mobile']" type="text" class="form-control" placeholder="+33 123 45 67 890"/>
+                                    <input name="mobile" id="gsm" t-att-value="profile['partner']['mobile']" type="text" class="form-control" placeholder="+33 61 12 23 345"/>
                                 </div>
                             </div>
                         </div>
