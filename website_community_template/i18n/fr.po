@@ -358,3 +358,11 @@ msgstr "Conditions d’utilisation"
 #: view:website:website_community_template.register_membership
 msgid "— You are a"
 msgstr "— Vous êtes un"
+
+
+#. module: auth_signup
+#: code:addons/auth_signup/controllers/main.py:57
+#, python-format
+msgid "Passwords do not match; please retype them."
+msgstr "Les mots de passent ne correspondent pas, veuillez les resaisir."
+
