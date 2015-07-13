@@ -37,7 +37,7 @@ import time
 class profile_controller(http.Controller):
 
     PARTNER_FIELDS = ['name', 'title', 'street', 'street2', 'zip', 'city', 'state_id',
-                      'country_id', 'birthdate', 'email', 'phone', 'mobile', 'image', 'ref']
+                      'country_id', 'birthdate', 'email', 'notify_email','notify_sms', 'phone', 'mobile', 'image', 'ref']
     LAST_EXCHANGES_LIMIT = 3
     ANNOUNCEMENT_LIMIT = 3
     PARTNER_GROUP_LIMIT = 3
@@ -61,6 +61,8 @@ class profile_controller(http.Controller):
                 'country_id': partner.country_id.id,
                 'zip': partner.zip,
                 'email': partner.email,
+                'notify_email': partner.notify_email,
+                'notify_sms': partner.notify_sms,
                 'phone': partner.phone,
                 'mobile': partner.mobile,
                 'birthdate': '' if not partner.birthdate else format_date(partner.birthdate, True),

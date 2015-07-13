@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+            <xpath expr="." position="inside">
+              <link rel='stylesheet' href='/website_membership_users/static/src/css/el_admin.css'/>
+            </xpath>
+        </template>
         <template id="profile_edit_general">
             <div class="container">
                 <div class="col-md-4">
@@ -138,6 +143,17 @@
                                     </t>
                                 </div>
                             </div>
+                            <div class="row">
+                                <label class="col-md-4  control-label"  for="notify_email">Receive our news</label>
+                                <div class="col-md-8 float-left-el">
+                                        <input name="notify_email" id="notify_email" value="always" t-if="profile['partner']['notify_email'] == 'always'" checked='checked' type="radio" class="form-control"/>  
+                                        <input name="notify_email" id="notify_email" value="always" t-if="profile['partner']['notify_email'] != 'always'" type="radio"  class="form-control"/>
+                                        <span>Yes</span>
+                                        <input t-if="profile['partner']['notify_email'] == 'none'" checked='checked'   name="notify_email" id="notify_email" value="none" type="radio" class="form-control"/>
+                                        <input t-if="profile['partner']['notify_email'] != 'none'" name="notify_email" id="notify_email" value="none" type="radio" class="form-control"/>
+                                        <span>No</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -146,6 +162,17 @@
                                 <label class="col-md-4 control-label" for="gsm">GSM</label>
                                 <div class="col-md-8">
                                     <input name="mobile" id="gsm" t-att-value="profile['partner']['mobile']" type="text" class="form-control" placeholder="+33 123 45 67 890"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4  control-label"  for="notify_email">Receive our sms</label>
+                                <div class="col-md-8 float-left-el">
+                                    <input name="notify_sms" id="notify_sms" value="yes" t-if="profile['partner']['notify_sms'] == 'yes'" checked='checked' type="radio" class="form-control"/>  
+                                    <input name="notify_sms" id="notify_sms" value="yes" t-if="profile['partner']['notify_sms'] != 'yes'" type="radio"  class="form-control"/> 
+                                    <span>Yes</span>
+                                    <input t-if="profile['partner']['notify_sms'] == 'no'" checked='checked'   name="notify_sms" id="notify_sms" value="no" type="radio" class="form-control"/>
+                                    <input t-if="profile['partner']['notify_sms'] != 'no'" name="notify_sms" id="notify_sms" value="no" type="radio" class="form-control"/>
+                                    <span>No</span>
                                 </div>
                             </div>
                         </div>
@@ -157,6 +184,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

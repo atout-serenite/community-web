@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Gestion des Langues / Drapeau (Menu Website)",
+    'name': "Gestion des Langues / Drapeaux (Menu Website)",
 
     'summary': """
         Gestionnaire de Menu des Langues avec Images

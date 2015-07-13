@@ -123,6 +123,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
+                                        <label class="col-md-6 col-xs-6 control-label" for="partner.notify_email">Receive our news</label>
+                                        <div class="col-md-6 col-xs-6">
+                                            <t t-esc="partner.notify_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
                                         <label class="col-md-4 col-xs-4 control-label" for="ref">Reference</label>
                                         <div class="col-md-8 col-xs-8">
                                             <t t-esc="partner.ref"/>
@@ -136,6 +144,14 @@
                                         <label class="col-md-4 col-xs-4 control-label" for="gsm">GSM</label>
                                         <div class="col-md-8 col-xs-8">
                                             <t t-esc="partner.mobile"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-6 col-xs-6 control-label" for="partner.notify_sms">Receive our SMS</label>
+                                        <div class="col-md-6 col-xs-6">
+                                            <t t-esc="partner.notify_sms"/>
                                         </div>
                                     </div>
                                 </div>

@@ -369,3 +369,27 @@ msgstr "Avec qui"
 #: view:website:website_membership_users.profile_edit_general
 msgid "your@email.com"
 msgstr "votre@email.com"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Receive our news"
+msgstr "Recevoir les informations"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Receive our sms"
+msgstr "Recevoir les SMS"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Yes"
+msgstr "Oui"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "No"
+msgstr "Non"
