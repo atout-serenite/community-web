@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <template id="website_last_article_snippet" name="Last Article snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_content']" position="inside">
+            <div>
+                <div class="oe_snippet_thumbnail">
+                    <img class="oe_snippet_thumbnail_img" src="/last_articles_block/static/src/img/last_ariticles.png"/>
+                    <span class="oe_snippet_thumbnail_title">Last Articles</span>
+                </div>
+                <section class="oe_snippet_body last_articles">
+                    <div data-snippet-option-id='website_last_article_snippet' data-selector=".last_articles" data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
+                        <li>
+                            <a href="#" class="button js_last_articles_refresh">Refresh</a>
+                        </li>
+                    </div>
+                    <div class="last_articles row" contenteditable="false">
+                        <!-- TODO: call formating -->
+                        <t t-esc="path"/>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+    <template id="last_articles" inherit_id="website.assets_frontend" name="Last Articles snippet">
+        <xpath expr="/t" position="inside">
+            <link rel="stylesheet" href="/last_articles_block/static/src/css/last_articles.css"  type="text/css"/>
+        </xpath>
+    </template>
+</data>
+</openerp>
