@@ -20,15 +20,22 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['marketplace','website','website_community_home','disable_openerp_online','website_community_template','website_membership_users','website_marketplace','langue_img','website_event'],
+    'depends': [
+        'marketplace',
+        'website',
+        'website_community_home',
+        'disable_openerp_online',
+        'website_community_template',
+        'website_membership_users',
+        'website_marketplace',
+        'langue_img',
+        'website_event'
+        ],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo.xml',
     ],
 }

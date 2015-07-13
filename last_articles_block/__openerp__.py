@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-#    Website Marketplace
+#    Last Articles Block
 #    Copyright (C) 2014 Xpansa Group (<http://xpansa.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,19 +20,22 @@
 #
 
 {
-    'name': 'Website Community Home',
+    'name': 'Last Articles Block',
     'category': 'Website',
+    'summary': 'Display the articales created just before the current article',
     'version': '1.0',
     'description': """
+Last 3 articles posted
+
         """,
-    'author': 'Author Name • WebByBrains <author@webbybrains.com>, Igor Krivonos <igor.krivonos@xpansa.com>',
+    'author': 'Author Name • David Mills <dmills@atout-serenite.com>',
     'depends': [
-        'auth_signup',
-        'website_marketplace',
-        'website_event',
+        'website',
     ],
     'data': [
-        'views/templates/home.xml',
+        'views/snippets.xml',
     ],
     'installable': True
 }
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

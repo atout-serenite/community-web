@@ -304,6 +304,12 @@ msgstr ""
 #. module: website_membership_users
 #: view:website:website_membership_users.profile_edit_general
 #: view:website:website_membership_users.profile_view
+msgid "Born :"
+msgstr ""
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
 msgid "Street #1"
 msgstr ""
 
