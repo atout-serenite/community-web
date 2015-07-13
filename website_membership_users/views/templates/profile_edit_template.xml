@@ -3,7 +3,7 @@
     <data>
         <template id="profile_edit_general">
             <div class="container">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <img t-att-src="images['image_big']" class="img img-responsive thumbnail"/>
                     <span class="btn btn-primary btn-file">
                         Upload new image 
@@ -18,89 +18,61 @@
                         </t>
                         
                     </div>
-                </div>
-                <div class="col-md-8">
-                
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="row">
-                                <label class="col-md-4 control-label" for="firstname">Name</label>
-                                <div class="col-md-8">
-                                    <input name="name" id="firstname" t-att-value="profile['partner']['name']" type="text" class="form-control" placeholder="Name"/>
-                                    <t t-if="'name' in errors">
-                                        <p class="bg-danger">
-                                            <t t-esc="errors['name']"/>
-                                        </p>
-                                    </t>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-md-12 control-label" for="birthdate">Birthdate</label>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input name="birthdate" id="birthdate" t-att-value="profile['partner']['birthdate']" t-att-placeholder="date_placeholder" type="text" class="date-picker-profil-edit form-control" />
+                                    <label for="birthdate" class="input-group-addon btn btn-default"><span class="fa fa-calendar"></span></label>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <label class="col-md-4 control-label" for="gender">Prefix</label>
-                                <div class="col-md-8">
-                                    <select name="title" id="gender" class="selectpicker form-control">
-                                        <t t-foreach="partner_titles" t-as="title">
-                                            <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><t t-esc="title[1]"/></option>
-                                        </t>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <label class="col-md-4 control-label" for="birthdate">Birthdate</label>
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        <input name="birthdate" id="birthdate" t-att-value="profile['partner']['birthdate']" t-att-placeholder="date_placeholder" type="text" class="date-picker-profil-edit form-control" />
-                                        <label for="birthdate" class="input-group-addon btn btn-default"><span class="fa fa-calendar"></span></label>
-                                    </div>
-                                    <t t-if="'birthdate' in errors">
-                                        <span class="bg-danger">
-                                            <t t-esc="errors['birthdate']"/>
-                                        </span>
-                                    </t>
-                                </div>
+                                <t t-if="'birthdate' in errors">
+                                    <span class="bg-danger">
+                                        <t t-esc="errors['birthdate']"/>
+                                    </span>
+                                </t>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                </div>
+                <div class="col-md-10">
+                    <div class="col-md-10">
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-md-4 control-label" for="street1">Street #1</label>
-                                <div class="col-md-8">
+                                <label class="col-md-2 control-label" for="street1">Street #1</label>
+                                <div class="col-md-10">
                                     <input name="street" id="street1" t-att-value="profile['partner']['street']" type="text" class="form-control" placeholder="Street"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-md-4 control-label" for="street2">Street #2</label>
-                                <div class="col-md-8">
+                                <label class="col-md-2 control-label" for="street2">Street #2</label>
+                                <div class="col-md-10">
                                     <input name="street2" id="street2" t-att-value="profile['partner']['street2']" type="text" class="form-control" placeholder="Street"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-md-4 control-label" for="zip">Postalcode</label>
-                                <div class="col-md-8">
+                                <label class="col-md-2 control-label" for="zip">Postalcode</label>
+                                <div class="col-md-10">
                                     <input name="zip" id="zip" t-att-value="profile['partner']['zip']" type="text" class="form-control" placeholder="Postalcode"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-md-4 control-label" for="city">City</label>
-                                <div class="col-md-8">
+                                <label class="col-md-2 control-label" for="city">City</label>
+                                <div class="col-md-10">
                                     <input name="city" id="city" t-att-value="profile['partner']['city']" type="text" class="form-control" placeholder="City"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-md-4 control-label" for="state">State</label>
-                                <div class="col-md-8">
+                                <label class="col-md-2 control-label" for="state">State</label>
+                                <div class="col-md-10">
                                     <select name="state_id" id="state" class="selectpicker form-control">
                                         <option value="0">Nothing Selected</option>
                                         <t t-foreach="states" t-as="state">
@@ -112,8 +84,8 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-md-4 control-label" for="country">Country</label>
-                                <div class="col-md-8">
+                                <label class="col-md-2 control-label" for="country">Country</label>
+                                <div class="col-md-10">
                                     <select name="country_id" id="country" class="selectpicker form-control">
                                         <option value="0">Nothing Selected</option>
                                         <t t-foreach="countries" t-as="country">
@@ -378,7 +350,24 @@
             <t t-call="website.layout">
                 <div class="container">
                     <div class="col-md-12">
-                        <h2 class="mt32 mb32">Profile information</h2>
+                        <h2 class="mt32 mb32 row">
+                            <div class="col-md-2">I am</div>
+                            <div class="col-md-2">
+                                <select name="title" id="gender" class="selectpicker form-control">
+                                    <t t-foreach="partner_titles" t-as="title">
+                                        <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><t t-esc="title[1]"/></option>
+                                    </t>
+                                </select> 
+                            </div>
+                            <div class="col-md-8">
+                                <input name="name" id="firstname" t-att-value="profile['partner']['name']" type="text" class="form-control" placeholder="Name"/>
+                                <t t-if="'name' in errors">
+                                    <p class="bg-danger">
+                                        <t t-esc="errors['name']"/>
+                                    </p>
+                                </t>
+                            </div>
+                        </h2>
                     </div>
                 </div>
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">

@@ -15,15 +15,22 @@
 
                 <div class="container">
                     <div class="col-md-12">
-                        <t t-if="is_administrator or partner.id == user_id.partner_id.id">
-                            <a class="btn btn-primary mt32 mb16" t-att-href="'/marketplace/profile/edit/%s' % partner.id">Edit</a>
-                        </t>
+                        <h2> 
+                            <t t-if="is_administrator or partner.id == user_id.partner_id.id">
+                                <a class="btn btn-primary mt16 mb16" t-att-href="'/marketplace/profile/edit/%s' % partner.id">Edit</a>
+                            </t>
+                            I am <t t-esc="partner.title.name"/> <t t-esc="partner.name"/>
+                        </h2>
                     </div>
                 </div>
 
                 <div class="container">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <img t-att-src="images['image_big']" class="img img-responsive thumbnail"/>
+                        <div>
+                            Born : <t t-esc="birthdate"/>
+                        </div>
+
                         <div class="mb32">
                             <div class="clearfix"></div>
                             <t t-if="membership">
@@ -31,81 +38,53 @@
                             </t>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-10">
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="firstname">Name</label>
-                                        <div class="col-md-8 col-xs-8">
-                                            <t t-esc="partner.name"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="gender">Prefix</label>
-                                        <div class="col-md-8 col-xs-8">
-                                            <t t-esc="partner.title.name"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="birthdate">Birthdate</label>
-                                        <div class="col-md-8 col-xs-8">
-                                            <div class="input-group">
-                                                <t t-esc="birthdate"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="street1">Street #1</label>
-                                        <div class="col-md-8 col-xs-8">
+                                        <label class="col-md-2 col-xs-2 control-label" for="street1">Street #1</label>
+                                        <div class="col-md-10 col-xs-10">
                                             <t t-esc="partner.street"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="street2">Street #2</label>
-                                        <div class="col-md-8 col-xs-8">
+                                        <label class="col-md-2 col-xs-2 control-label" for="street2">Street #2</label>
+                                        <div class="col-md-10 col-xs-10">
                                             <t t-esc="partner.street2"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="zip">Postalcode</label>
-                                        <div class="col-md-8 col-xs-8">
+                                        <label class="col-md-2 col-xs-2 control-label" for="zip">Postalcode</label>
+                                        <div class="col-md-10 col-xs-10">
                                             <t t-esc="partner.zip"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="city">City</label>
-                                        <div class="col-md-8 col-xs-8">
+                                        <label class="col-md-2 col-xs-2 control-label" for="city">City</label>
+                                        <div class="col-md-10 col-xs-10">
                                             <t t-esc="partner.city"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="state">State</label>
-                                        <div class="col-md-8 col-xs-8">
+                                        <label class="col-md-2 col-xs-2 control-label" for="state">State</label>
+                                        <div class="col-md-10 col-xs-10">
                                             <t t-esc="partner.state_id.name"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-4 col-xs-4 control-label" for="country">Country</label>
-                                        <div class="col-md-8 col-xs-8">
+                                        <label class="col-md-2 col-xs-2 control-label" for="country">Country</label>
+                                        <div class="col-md-10 col-xs-10">
                                             <t t-esc="partner.country_id.name"/>
                                         </div>
                                     </div>
