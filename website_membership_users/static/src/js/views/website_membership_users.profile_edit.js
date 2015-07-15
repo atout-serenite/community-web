@@ -19,5 +19,24 @@ openerp.website.theme.views['website_membership_users.profile_edit'] = openerp.C
             }
         });
 
+        $('form button[type=submit]').on('click', function(e){
+            var hidden = $('<input type="hidden" name="products"/>');
+
+            var ids = Array();
+
+            $('.container.memberships button.active').each(function()
+                {
+                    var id=$(this).attr('data-id'); 
+                    if (ids.indexOf(id) == -1)
+                    {
+                        ids.push(id)
+                    };
+                });
+
+            hidden.attr('value', ids.join());
+
+            $('form button[type=submit]').parent().append(hidden);
+        });
+
     }
 });

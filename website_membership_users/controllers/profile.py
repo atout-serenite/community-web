@@ -140,6 +140,8 @@ class profile_controller(http.Controller):
                         values['partner'][k] = base64.encodestring(val.read())
                 else:
                     values['partner'].update({k: val})
+            elif k.startswith('products'):
+                values['products'] = val
             elif k.startswith('skills'):
                 for key in ['new', 'existing']:
                     skill_number = re.search('skills\[%s\]\[(\d+)\]' % key, k)
@@ -414,30 +416,17 @@ class profile_controller(http.Controller):
                     'partner_id': partner.id,
                 }, context=context)
 
-        # Assign membership
-        if 'membership' in data:
-            membership_product = product_pool.browse(cr, uid, int(data['membership']), context=context)
-            inv_ids = partner_pool.create_membership_invoice(cr, SUPERUSER_ID, [partner.id], \
-                                                             int(data['membership']), 
-                                                             {'amount': membership_product.lst_price},
-                                                             context=context)
-            if inv_ids:
-                invoice = invoice_pool.browse(cr, SUPERUSER_ID, inv_ids[0], context=context)
-                balance_found = False
-                for balance in partner.wallet_balance_ids:
-                    if balance.currency_id.id == invoice.currency_id.id:
-                        balance.write({
-                            'available': balance.available-membership_product.lst_price
-                        })
-                        balance_found = True
-                        break
-                if not balance_found:
-                    balance_pool.create(cr, uid, {
-                        'partner_id': partner.id,
-                        'available': -membership_product.lst_price,
-                        'currency_id': invoice.currency_id.id
-                    }, context=context)
+        #
+        # Handle membership
+        #
+        if 'products' in data:
+            product_ids = data['products'].split(',')
+            if (len(product_ids) > 0):
+                sale_order = request.website.sale_get_order(force_create=1)
+                for product_id in product_ids:
+                    sale_order._cart_update(product_id=int(product_id), set_qty=1)
 
+                return request.redirect("/shop/checkout")
 
 
     @http.route('/marketplace/profile/edit/<model("res.partner"):partner>', type='http', auth="user", website=True)
@@ -457,8 +446,10 @@ class profile_controller(http.Controller):
             values = self.profile_values(partner, user.partner_id.id == partner.id, kw)
             values['errors'] = self.profile_form_validate(values['profile'])
             if not values['errors']:
-                self.profile_save(partner, values['profile'])
+                result = self.profile_save(partner, values['profile'])
                 request.session['profile_saved'] = True
+                if result != None:
+                    return result
                 return request.redirect("/marketplace/profile/%s" % partner.id)
         else:
             values = self.profile_values(partner, user.partner_id.id == partner.id)

@@ -7,3 +7,7 @@ div.list-item:not(:first-child) > div.row > div > .list-add.on-first
 div.memberships {
     text-align: center;
 }
+
+div.memberships button {
+    float: none !important;
+}

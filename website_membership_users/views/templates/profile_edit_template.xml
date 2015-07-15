@@ -271,8 +271,8 @@
                                 <p><span itemprop="image" t-field="product.image" t-field-options='{"widget": "image", "class": "product_detail_img"}'/></p>
                                 <p><t t-esc="product.description_sale"/></p>
                                 <p><t t-esc="product.list_price"/><t t-esc="product.sale_price_currency_id.symbol"/></p>
-                                <!-- TODO: add devise, durée -->
-                                <p><button type="button" class="btn btn-success pull-right mt16 btn-nolink">Subscribe</button></p>
+                                
+                                <p><button type="button" t-att-data-id="product.id" class="btn btn-success pull-right mt16 btn-nolink">Subscribe</button></p>
                             </div>
 
                         </t>
