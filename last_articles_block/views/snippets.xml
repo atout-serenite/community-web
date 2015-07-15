@@ -85,8 +85,7 @@
             <t t-foreach='posts'  t-as='p'>
                 <div class='col-md-4'>
                     <h1 t-esc='p.name'></h1>
-                    <h2 t-esc='p.create_date'></h2>
-                    <div type='xml' t-field="p.arch"/>
+                    <div t-field="p.website_meta_description"/>
                 </div>
             </t>
     </template>

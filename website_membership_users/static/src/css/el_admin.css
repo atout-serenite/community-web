@@ -1,0 +1,13 @@
+.float-left-el input,.float-left-el span { 
+	float: left!important;
+	margin-left:5px;
+	margin-right: 0px;
+}
+.float-left-el input {
+	display: block;
+	width: 10px;
+}
+.float-left-el span {
+	margin-top:8px;
+	margin-right: 10px;
+}
