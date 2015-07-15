@@ -30,6 +30,7 @@
     'depends': [
         'website',
         'product_price_currency',
+        'website_sale',
         'association',
         'membership_users',
         'membership',
