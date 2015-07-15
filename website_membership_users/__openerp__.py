@@ -29,6 +29,7 @@
     'author': 'Author Name • WebByBrains <author@webbybrains.com>, Igor Krivonos <igor.krivonos@xpansa.com>',
     'depends': [
         'website',
+        'product_price_currency',
         'association',
         'membership_users',
         'membership',

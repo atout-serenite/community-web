@@ -464,6 +464,26 @@ class profile_controller(http.Controller):
             values = self.profile_values(partner, user.partner_id.id == partner.id)
         values['images'] = self.profile_images(partner)
         values['format_text'] = format_text
+        values['memberships'] = {}
+        #TODO: Add product data
+        product_pool = registry.get('product.product')
+        product_ids = product_pool.search(cr, uid,[
+                ('membership', '=', True),
+                ('membership_date_to', '>=', datetime.today())])
+        for product in product_pool.browse(cr, uid, product_ids):
+            #Create categorie if needed
+            categories = product.public_categ_ids 
+            if len(categories) == 0:
+                from collections import namedtuple
+                CollectionStruct = namedtuple('CollectionStruct', 'id complete_name')
+                categories = [CollectionStruct(id= 0, complete_name= 'default')]
+            for category in categories:
+                try:
+                    values['memberships'][category.id]['products'].append(product)
+                except KeyError:
+                    values['memberships'][category.id] = {}
+                    values['memberships'][category.id]['name'] = category.complete_name
+                    values['memberships'][category.id]['products'] = [product]
         return request.website.render("website_membership_users.profile_edit", values)
 
     @http.route('/marketplace/profile/edit', type='http', auth="user", website=True)
