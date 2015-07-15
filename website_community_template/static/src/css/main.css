@@ -2809,3 +2809,7 @@ h5.footer-title .footer-logo.logo-wezer {
 .thumbnail-signin form label input[type="checkbox"] {
   margin-top: 11px;
 }
+
+footer {
+  background: rgba(200, 200, 200, 0.4)!important;
+}

@@ -399,3 +399,8 @@ msgstr "Oui"
 #: view:website:website_membership_users.profile_view
 msgid "No"
 msgstr "Non"
+
+#. module: website_membership_users
+#: field:res.partner,notify_sms:0,
+msgid "Receive Inbox Notifications by Sms"
+msgstr "Recevoir les notifications par SMS"

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="liste article">
+        <xpath expr="." position="inside">
+          <script type="text/javascript" src="/last_articles_block/static/src/js/function.js"/>
+          <script type="text/javascript" src="/last_articles_block/static/src/js/scripts.js"/>
+        </xpath>
+    </template>
     <template id="website_last_article_snippet" name="Last Article snippet" inherit_id="website.snippets">
         <xpath expr="//div[@id='snippet_content']" position="inside">
             <div>
@@ -8,20 +14,83 @@
                     <img class="oe_snippet_thumbnail_img" src="/last_articles_block/static/src/img/last_ariticles.png"/>
                     <span class="oe_snippet_thumbnail_title">Last Articles</span>
                 </div>
-                <section class="oe_snippet_body last_articles">
-                    <div data-snippet-option-id='website_last_article_snippet' data-selector=".last_articles" data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
+                <section class="oe_snippet_body">
+                    <div data-snippet-option-id='website_last_article_snippet' data-selector=".last_articles_snippets" data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
                         <li>
                             <a href="#" class="button js_last_articles_refresh">Refresh</a>
                         </li>
                     </div>
-                    <div class="last_articles row" contenteditable="false">
+                    <div class="container">
+                        <div class="last_articles_snippets row js_get_posts" data-loading="true" data-template="snippet_last_articles.liste_article" contenteditable="false" t-name='contentart'>
                         <!-- TODO: call formating -->
-                        <t t-esc="path"/>
+                            <div class='col-md-4'>
+                                <h1>Titre de la page</h1>
+                                <p>Image de la page</p>
+                                <div class='centent'><p>Contenu de la page</p></div>
+                            </div>
+                            <div class='col-md-4'>
+                                <h1>Titre de la page</h1>
+                                <p>Image de la page</p>
+                                <div class='centent'><p>Contenu de la page</p></div>
+                            </div>
+                            <div class='col-md-4'>
+                                <h1>Titre de la page</h1>
+                                <p>Image de la page</p>
+                                <div class='centent'><p>Contenu de la page</p></div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
         </xpath>
     </template>
+    <template id="website_last_article_snippet2" name="Last Article snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_content']" position="inside">
+            <div>
+                <div class="oe_snippet_thumbnail">
+                    <img class="oe_snippet_thumbnail_img" src="/last_articles_block/static/src/img/last_ariticles.png"/>
+                    <span class="oe_snippet_thumbnail_title">Last Articles 2</span>
+                </div>
+                <section class="oe_snippet_body">
+                    <div data-snippet-option-id='website_last_article_snippet2' data-selector=".last_articles_snippets" data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
+                        <li>
+                            <a href="#" class="button js_last_articles_refresh">Refresh</a>
+                        </li>
+                    </div>
+                    <div class="container">
+                        <div class="last_articles_snippets row js_get_posts" data-loading="true" data-template="snippet_last_articles.liste_article" contenteditable="false" t-name='contentart'>
+                        <!-- TODO: call formating -->
+                            <div class='col-md-4'>
+                                <h1>Titre de la page</h1>
+                                <p>Image de la page</p>
+                                <div class='centent'><p>Contenu de la page</p></div>
+                            </div>
+                            <div class='col-md-4'>
+                                <h1>Titre de la page</h1>
+                                <p>Image de la page</p>
+                                <div class='centent'><p>Contenu de la page</p></div>
+                            </div>
+                            <div class='col-md-4'>
+                                <h1>Titre de la page</h1>
+                                <p>Image de la page</p>
+                                <div class='centent'><p>Contenu de la page</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+    <template id="liste_last" name='liste Article'>
+            <t t-foreach='posts'  t-as='p'>
+                <div class='col-md-4'>
+                    <h1 t-esc='p.name'></h1>
+                    <h2 t-esc='p.create_date'></h2>
+                    <div type='xml' t-field="p.arch"/>
+                </div>
+            </t>
+    </template>
+
     <template id="last_articles" inherit_id="website.assets_frontend" name="Last Articles snippet">
         <xpath expr="/t" position="inside">
             <link rel="stylesheet" href="/last_articles_block/static/src/css/last_articles.css"  type="text/css"/>

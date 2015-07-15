@@ -40,6 +40,7 @@
         'views/templates/profile_view_template.xml',
         'views/templates/member_list_view.xml',
         'views/templates/single_member_view.xml',
+        'views/templates/user_notify_sms.xml',
     ],
     'installable': True
 }
