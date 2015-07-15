@@ -225,6 +225,34 @@
             </section>
         </template>
 
+        <template id="profile_edit_memberships">
+            <section class="pt32 pb32">
+                <!-- TODO: foreach categorie -->
+                <t t-foreach="memberships" t-as="categorie">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h3 class="mb32"><t t-esc="memberships[categorie]['name']"/></h3>
+                        </div>
+                    </div>
+                    <!-- TODO: foreach article -->
+                    <div class="container memberships">
+                        <t t-foreach="memberships[categorie]['products']" t-as="product">
+                            <!-- TODO: display article -->
+                            <div class="col-md-4">
+                                <h3><t t-esc="product.display_name"/></h3>
+                                <p><span itemprop="image" t-field="product.image" t-field-options='{"widget": "image", "class": "product_detail_img"}'/></p>
+                                <p><t t-esc="product.description_sale"/></p>
+                                <p><t t-esc="product.list_price"/><t t-esc="product.currency_id"/></p>
+                                <!-- TODO: add devise, durée -->
+                                <p><a href="#" class="btn btn-success pull-right mt16 btn-nolink">Subscribe</a></p>
+                            </div>
+
+                        </t>
+                    </div>
+                </t>
+            </section>
+        </template>
+
         <template id="profile_edit_wants_and_offers">
             <!-- marketplace listing -->
             <section class="pt32 bg-success">
@@ -373,6 +401,7 @@
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
                     <t t-call="website_membership_users.profile_edit_general"/>
                     <t t-call="website_membership_users.profile_edit_resources"/>
+                    <t t-call="website_membership_users.profile_edit_memberships" />
                     <t t-call="website_membership_users.profile_edit_groups"/>
                     <t t-call="website_membership_users.profile_edit_wants_and_offers"/>
                     <t t-call="website_membership_users.profile_edit_activity"/>
