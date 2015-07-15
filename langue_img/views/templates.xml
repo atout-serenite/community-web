@@ -7,7 +7,7 @@
         </template>
         <template id="top_menu_flags" inherit_id="website_community_template.layout" name="website_lang_menu_option">
             <xpath expr="//div[@id='bs-example-navbar-collapse-1']//ul[position()=last()]" position="before">
-               <ul class="list-inline bt_langue" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+               <ul class="list-inline bt_langue" t-if="(request.website_multilang and len(languages) &gt; 1)">
                     <li t-foreach="languages" t-as="lg">
                         <a
                             t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
