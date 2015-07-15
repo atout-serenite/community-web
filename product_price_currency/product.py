@@ -7,10 +7,6 @@ class product_template(models.Model):
     _inherit = 'product.template'
     _name = 'product.template'
 
-    _columns = {
-        'currency_id': fields.function(get_currency_id, string='Currency', type='float'),
-    }
-
     @api.model
     def get_currency_id(self):
         price_type_obj = self.env['product.price.type']
