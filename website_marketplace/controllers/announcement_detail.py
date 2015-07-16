@@ -37,6 +37,7 @@ from openerp.addons.website_base_community.controllers.main \
     import get_date_format, format_date
 
 from attrdict import AttrDict
+from openerp.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 
@@ -517,8 +518,8 @@ class AnnouncementController(http.Controller):
         """ Return all state statuses
         """
         return {
-            'offer': 'Offer',
-            'want': 'Want',
+            'offer': _('Offer'),
+            'want': _('Want'),
         }
 
     def get_vote_types(self, cr, uid, registry, context=None):

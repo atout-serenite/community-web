@@ -17,8 +17,8 @@ msgstr ""
 
 #. module: website_community_template
 #: view:website:website.layout
-msgid ", common good wealth actualization tools factory, based on"
-msgstr ", fabrique d’outils d’actualisation de richesse en bien commun, basé sur"
+msgid ", common good tools fabrics, based on"
+msgstr ", fabrique d'outils coopératifs, basé sur"
 
 #. module: website_community_template
 #: view:website:website.404
@@ -65,6 +65,11 @@ msgstr "Devise"
 #: view:website:web.login
 msgid "Email address"
 msgstr "Adresse email"
+
+#. module: website_community_template
+#: view:website:web.login
+msgid "Powered by"
+msgstr "Basé sur"
 
 #. module: website_community_template
 #: view:website:auth_signup.reset_password
@@ -359,10 +364,39 @@ msgstr "Conditions d’utilisation"
 msgid "— You are a"
 msgstr "— Vous êtes un"
 
-
 #. module: auth_signup
 #: code:addons/auth_signup/controllers/main.py:57
 #, python-format
 msgid "Passwords do not match; please retype them."
 msgstr "Les mots de passent ne correspondent pas, veuillez les resaisir."
 
+#. module: auth_signup
+#: code:extensions/weezer/website_community_template/controllers/main.py:34
+#, python-format
+msgid "Please check your email address and password"
+msgstr "Les mots de passent ne correspondent pas, veuillez les resaisir."
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Last activity date"
+msgstr "Dernières mises à jour"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Unanswered"
+msgstr "En cours"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Newest"
+msgstr "Plus récentes"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Most answered"
+msgstr "Plus répondues"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Most voted"
+msgstr "Plus intéressantes"

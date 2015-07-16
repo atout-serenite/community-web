@@ -567,3 +567,15 @@ msgstr "réponses"
 #: view:website:website_marketplace.view_announcement
 msgid "to submit a reply"
 msgstr "soumettre une réponse"
+
+#. module: auth_signup
+#: code:extensions/weezer/website_marketplace/controllers/announcement_detail.py:521
+#, python-format
+msgid "Offer"
+msgstr "Offre"
+
+#. module: auth_signup
+#: code:extensions/weezer/website_marketplace/controllers/announcement_detail.py:522
+#, python-format
+msgid "Want"
+msgstr "Demande"
