@@ -2,7 +2,7 @@
     <data>
         <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
             <xpath expr="." position="inside">
-              <link rel='stylesheet' href='/langue_img/static/src/css/langue_img.css'/>
+              <link rel='stylesheet' href='/website_language_flags/static/src/css/langue_img.css'/>
             </xpath>
         </template>
         <template id="top_menu_flags" inherit_id="website_community_template.layout" name="website_lang_menu_option">
@@ -15,7 +15,7 @@
                             t-att-data-lang="lg[0]"
                             class="js_change_lang"
                         >
-                        <img t-att-alt="lg[1]"  t-att-src="'/langue_img/static/src/img/flags/22x14/' + lg[0] + '.png'" />
+                        <img t-att-alt="lg[1]"  t-att-src="'/website_language_flags/static/src/img/flags/22x14/' + lg[0] + '.png'" />
                           <!-- <t t-esc="lg[1].split('/').pop()"/> -->
                         </a>
                     </li>

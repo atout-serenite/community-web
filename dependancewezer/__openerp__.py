@@ -3,11 +3,11 @@
     'name': "Dependance Wezer",
 
     'summary': """
-        Installation des depenses pour wezer 
+        Installation des dependances pour wezer 
     """,
 
     'description': """
-        Installation des depenses pour wezer
+        Installation des dependances pour wezer
     """,
 
     'author': "Yann LE GOFF",
@@ -28,7 +28,8 @@
         'website_community_template',
         'website_membership_users',
         'website_marketplace',
-        'langue_img',
+        'last_articles_block',
+        'website_language_flags',
         'website_event',
         'website_forum'
         ],
