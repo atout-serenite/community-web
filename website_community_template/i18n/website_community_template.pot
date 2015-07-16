@@ -67,6 +67,11 @@ msgid "Email address"
 msgstr ""
 
 #. module: website_community_template
+#: view:website:web.login
+msgid "Powered by"
+msgstr ""
+
+#. module: website_community_template
 #: view:website:auth_signup.reset_password
 msgid "Email address or username"
 msgstr ""
@@ -344,3 +349,27 @@ msgstr ""
 msgid "— You are a"
 msgstr ""
 
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Last activity date"
+msgstr ""
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Unanswered"
+msgstr ""
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Newest"
+msgstr ""
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Most answered"
+msgstr ""
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Most voted"
+msgstr ""

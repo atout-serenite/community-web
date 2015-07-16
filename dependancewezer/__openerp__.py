@@ -29,7 +29,8 @@
         'website_membership_users',
         'website_marketplace',
         'langue_img',
-        'website_event'
+        'website_event',
+        'website_forum'
         ],
 
     # always loaded
