@@ -47,11 +47,11 @@
     <template id="liste_last" name='liste Article'>
             <t t-foreach='posts'  t-as='p'>
                 <div class='col-md-4'>
-                    <a t-att-href="p.page_url()">
+                    <a t-att-href="/page/{{ p.id }}">
                         <h2 t-esc='p.website_meta_title' />             
                         <span class="image">
                             <span t-if="p.website_meta_image" >
-                                <img t-att-src="p.get_image_base64()"/>
+                                <img t-att-src="kanban_image('ir.ui.view', 'image', p.id)"/>
                             </span>
                         </span>
                         <span t-field="p.website_meta_description"/>

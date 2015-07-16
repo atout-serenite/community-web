@@ -9,7 +9,7 @@
                 <div class="col-lg-8">
                     <input type="file" id='fileselect' name='seo_page_image' />
                     <span class="input-group-btn">
-                            <button onclick="UploadImage('message')" id="bouton_img" class="btn btn-default" type="button">Add Image</button>
+                            <button data-action="setSEOImage" class="btn btn-default" type="button">Add Image</button>
                     </span>
                 </div>
                 </form>

@@ -255,17 +255,14 @@
 
         <template id="profile_edit_memberships">
             <section class="pt32 pb32">
-                <!-- TODO: foreach categorie -->
                 <t t-foreach="memberships" t-as="categorie">
                     <div class="container">
                         <div class="col-md-12">
                             <h3 class="mb32"><t t-esc="memberships[categorie]['name']"/></h3>
                         </div>
                     </div>
-                    <!-- TODO: foreach article -->
                     <div class="container memberships" >
                         <t t-foreach="memberships[categorie]['products']" t-as="product">
-                            <!-- TODO: display article -->
                             <div class="col-md-4">
                                 <h3><t t-esc="product.display_name"/></h3>
                                 <p><span itemprop="image" t-field="product.image" t-field-options='{"widget": "image", "class": "product_detail_img"}'/></p>
