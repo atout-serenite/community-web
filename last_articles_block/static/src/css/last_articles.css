@@ -108,3 +108,11 @@
     height: 100px;
   }
 }
+
+.last_articles_snippets h2 a { 
+  text-decoration: none;
+}
+.last_articles_snippets img { 
+  margin-top:10px!important;
+  margin-bottom:10px!important;
+}

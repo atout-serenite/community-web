@@ -1,13 +1,26 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
-
+from openerp import models,api
+from openerp.osv import orm, osv, fields
 # class testmodule(models.Model):
 #	 _name = 'testmodule.testmodule'
 
 #	 name = fields.Char()
 
+class website_seo_metadata(osv.Model):
+    _inherit = 'ir.ui.view'
 
+    _columns = {
+        'website_meta_image': fields.binary("Image"),
+    }
+
+    @api.model
+    def get_image_base64(self):
+        return "data:image/png;base64,%s" % (self.website_meta_image)
+    @api.model
+    def page_url(self):
+    	page = 'website.%s' % self.id
+    	return page
 
 class snippet_latest_posts_controller(models.Model):
 	_name = 'last_articles_block.render_latest_posts'

@@ -5,6 +5,7 @@
         <xpath expr="." position="inside">
           <script type="text/javascript" src="/last_articles_block/static/src/js/function.js"/>
           <script type="text/javascript" src="/last_articles_block/static/src/js/scripts.js"/>
+          <script type="text/javascript" src="/last_articles_block/static/src/js/website.seo.js"/>
         </xpath>
     </template>
     <template id="website_last_article_snippet" name="Last Article snippet" inherit_id="website.snippets">
@@ -16,7 +17,7 @@
                 </div>
                 <section class="oe_snippet_body">
                     <div data-snippet-option-id='website_last_article_snippet' data-selector=".last_articles_snippets" data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
-                        <li>
+                    >    <li>
                             <a href="#" class="button js_last_articles_refresh">Refresh</a>
                         </li>
                     </div>
@@ -44,47 +45,20 @@
             </div>
         </xpath>
     </template>
-    <template id="website_last_article_snippet2" name="Last Article snippet" inherit_id="website.snippets">
-        <xpath expr="//div[@id='snippet_content']" position="inside">
-            <div>
-                <div class="oe_snippet_thumbnail">
-                    <img class="oe_snippet_thumbnail_img" src="/last_articles_block/static/src/img/last_ariticles.png"/>
-                    <span class="oe_snippet_thumbnail_title">Last Articles 2</span>
-                </div>
-                <section class="oe_snippet_body">
-                    <div data-snippet-option-id='website_last_article_snippet2' data-selector=".last_articles_snippets" data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
-                        <li>
-                            <a href="#" class="button js_last_articles_refresh">Refresh</a>
-                        </li>
-                    </div>
-                    <div class="container">
-                        <div class="last_articles_snippets row js_get_posts" data-loading="true" data-template="snippet_last_articles.liste_article" contenteditable="false" t-name='contentart'>
-                        <!-- TODO: call formating -->
-                            <div class='col-md-4'>
-                                <h1>Titre de la page</h1>
-                                <p>Image de la page</p>
-                                <div class='centent'><p>Contenu de la page</p></div>
-                            </div>
-                            <div class='col-md-4'>
-                                <h1>Titre de la page</h1>
-                                <p>Image de la page</p>
-                                <div class='centent'><p>Contenu de la page</p></div>
-                            </div>
-                            <div class='col-md-4'>
-                                <h1>Titre de la page</h1>
-                                <p>Image de la page</p>
-                                <div class='centent'><p>Contenu de la page</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+    <template id="donnee_get" name='liste Article'>
+            <div class='col-md-4'>
+                    <h1 t-esc='posts'></h1>
             </div>
-        </xpath>
     </template>
     <template id="liste_last" name='liste Article'>
             <t t-foreach='posts'  t-as='p'>
                 <div class='col-md-4'>
-                    <h1 t-esc='p.name'></h1>
+                    <h2><a t-att-href="p.page_url()">
+                        <span t-esc='p.website_meta_title' />
+                    </a></h2>                    
+                    <div t-if="p.website_meta_image">
+                        <img t-att-src="p.get_image_base64()"/>
+                    </div>
                     <div t-field="p.website_meta_description"/>
                 </div>
             </t>
@@ -95,5 +69,16 @@
             <link rel="stylesheet" href="/last_articles_block/static/src/css/last_articles.css"  type="text/css"/>
         </xpath>
     </template>
+
+    <template id="website_last_article_promote" name="Last Article promote" inherit_id="website.user_navbar">
+        <xpath expr="//ul[@id='oe_systray']/li[@groups='base.group_website_designer']" position="replace">
+            <li>
+                    <a data-action="promote-current-page2" href="#">
+                    <span title="Promote page on the web">Promote</span>
+                </a>
+            </li>
+        </xpath>
+    </template>
+
 </data>
 </openerp>

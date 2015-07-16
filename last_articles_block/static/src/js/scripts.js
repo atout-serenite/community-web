@@ -47,7 +47,7 @@
     //   });
     // },
     build: function() {
-      var xhr = getXhr();
+      var xhr = new XMLHttpRequest();
       // On défini ce qu'on va faire quand on aura la réponse
       xhr.onreadystatechange = function(){
         // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
@@ -55,8 +55,18 @@
           $('.last_articles_snippets').html(xhr.responseText);
         }
       }
-      xhr.open("POST","/snippet_latest_posts/render",true);
-      xhr.send(null);
+      var repr = $('html').data('main-object');
+      var m = repr.match(/(.+)\((\d+),(.*)\)/);
+      
+      
+
+      xhr.open("POST","/snippet_latest_posts/render/"+ m[1] + "/" + m[2],true);
+      
+      if (!m) {
+          xhr.send(null);
+      } else {
+          xhr.send('?page='+ m[2] + '&base=' + m[1]);
+      }
     }
 
   })
