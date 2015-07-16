@@ -53,13 +53,15 @@
     <template id="liste_last" name='liste Article'>
             <t t-foreach='posts'  t-as='p'>
                 <div class='col-md-4'>
-                    <h2><a t-att-href="p.page_url()">
-                        <span t-esc='p.website_meta_title' />
-                    </a></h2>                    
-                    <div t-if="p.website_meta_image">
-                        <img t-att-src="p.get_image_base64()"/>
-                    </div>
-                    <div t-field="p.website_meta_description"/>
+                    <a t-att-href="p.page_url()">
+                        <h2 t-esc='p.website_meta_title' />             
+                        <span class="image">
+                            <span t-if="p.website_meta_image" >
+                                <img t-att-src="p.get_image_base64()"/>
+                            </span>
+                        </span>
+                        <span t-field="p.website_meta_description"/>
+                    </a>
                 </div>
             </t>
     </template>
