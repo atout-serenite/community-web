@@ -11,3 +11,9 @@ div.memberships {
 div.memberships button {
     float: none !important;
 }
+
+button.submit {
+    float: none !important;
+    margin: 0 auto;
+    display: block;
+}
