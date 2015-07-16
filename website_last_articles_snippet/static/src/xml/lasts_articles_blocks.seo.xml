@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
    
     <t t-extend="website.seo_configuration">
-        <t t-jquery=".oe_seo_configuration div.modal-body section:eq(2) div.form-group:eq(2)" t-operation="after">
+        <t t-jquery=".oe_seo_configuration div.modal-body section:eq(1) div.form-group:eq(1)" t-operation="after">
             <div class="form-group">
                 <form id="file-form" action="handler.php" method="POST">
                 <label for="seo_page_image" class="col-lg-2 control-label">Image</label>

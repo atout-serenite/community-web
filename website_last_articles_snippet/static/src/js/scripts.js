@@ -34,7 +34,7 @@
       
       
 
-      xhr.open("POST","/snippet_latest_posts/render/"+ m[1] + "/" + m[2],true);
+      xhr.open("POST","/website_last_articles_snippet/render/"+ m[1] + "/" + m[2],true);
       
       if (!m) {
           xhr.send(null);
