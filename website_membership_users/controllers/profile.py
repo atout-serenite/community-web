@@ -140,6 +140,9 @@ class profile_controller(http.Controller):
                         values['partner'][k] = base64.encodestring(val.read())
                 else:
                     values['partner'].update({k: val})
+            #
+            # Get the selected product data from the frontend
+            #
             elif k.startswith('products'):
                 values['products'] = val
             elif k.startswith('skills'):
@@ -417,7 +420,8 @@ class profile_controller(http.Controller):
                 }, context=context)
 
         #
-        # Handle membership
+        # Handle membership, adding products to the e-commerce cart as needed, 
+        # and redirecting to the checkout page
         #
         if 'products' in data:
             product_ids = data['products'].split(',')
@@ -456,14 +460,18 @@ class profile_controller(http.Controller):
         values['images'] = self.profile_images(partner)
         values['format_text'] = format_text
         values['memberships'] = {}
-        #TODO: Add product data
+        #
+        # Display memberships that the user can buy
+        #
         product_pool = registry.get('product.product')
         product_ids = product_pool.search(cr, uid,[
                 ('membership', '=', True),
                 ('membership_date_to', '>=', datetime.today())])
         for product in product_pool.browse(cr, uid, product_ids):
-            #Create categorie if needed
             categories = product.public_categ_ids 
+            #
+            # Handle the case where we need a default categorie
+            #
             if len(categories) == 0:
                 from collections import namedtuple
                 CollectionStruct = namedtuple('CollectionStruct', 'id complete_name')
