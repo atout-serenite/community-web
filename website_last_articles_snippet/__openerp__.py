@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-#    Last Articles Block
+#    Website Last Articles Snippet
 #    Copyright (C) 2014 Xpansa Group (<http://xpansa.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 #
 
 {
-    'name': 'Last Articles Block',
+    'name': 'Website Last Articles Snippet',
     'category': 'Website',
     'summary': 'Display the articales created just before the current article',
     'version': '1.0',
