@@ -8,15 +8,14 @@
         <template id="top_menu_flags" inherit_id="website_community_template.layout" name="website_lang_menu_option">
             <xpath expr="//div[@id='bs-example-navbar-collapse-1']//ul[position()=last()]" position="before">
                <ul class="list-inline bt_langue" t-if="(request.website_multilang and len(languages) &gt; 1)">
-                    <li t-foreach="languages" t-as="lg">
+                    <li t-foreach="languages" t-as="language">
                         <a
-                            t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
-                            t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None"
-                            t-att-data-lang="lg[0]"
+                            t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=language[0])"
+                            t-att-data-default-lang="editable and 'true' if language[0] == website.default_lang_code else None"
+                            t-att-data-lang="language[0]"
                             class="js_change_lang"
                         >
-                        <img t-att-alt="lg[1]"  t-att-src="'/website_language_flags/static/src/img/flags/22x14/' + lg[0] + '.png'" />
-                          <!-- <t t-esc="lg[1].split('/').pop()"/> -->
+                        <img t-att-alt="language[1]"  t-att-src="'/website_language_flags/static/src/img/flags/22x14/' + language[0] + '.png'" />
                         </a>
                     </li>
                 </ul>
