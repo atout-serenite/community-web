@@ -25,7 +25,7 @@
     'summary': 'Display the articales created just before the current article',
     'version': '1.0',
     'description': """
-Last 3 articles posted
+Introduce a sniipt that displays the last 3 articles posted
 
         """,
     'author': 'Author Name • David Mills <dmills@atout-serenite.com>',

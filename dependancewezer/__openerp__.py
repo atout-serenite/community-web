@@ -28,7 +28,7 @@
         'website_community_template',
         'website_membership_users',
         'website_marketplace',
-        'last_articles_block',
+        'website_last_articles_snippet',
         'website_language_flags',
         'website_event',
         'website_forum'
