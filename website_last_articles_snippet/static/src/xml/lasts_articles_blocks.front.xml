@@ -13,7 +13,7 @@
                                 <img t-att-src="'/web/binary/image?model=ir.ui.view&amp;id=' + p.id + '&amp;field=website_meta_image'"/>
                             </span>
                         </span>
-                        <span t-field="p.website_meta_description"/>
+                        <span t-if='p.website_meta_description != false' t-esc="p.website_meta_description"/>
                     </a>
                 </div>
             </t>
