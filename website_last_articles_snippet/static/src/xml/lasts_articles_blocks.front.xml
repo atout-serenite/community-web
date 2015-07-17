@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="website_last_articles_snippet.liste_articles">
+            <t t-foreach='posts'  t-as='p'>
+                <div class='col-md-4'>
+                    <a t-att-href="'/page/' + p.id ">
+                        <h2>
+                            <span t-esc='p.website_meta_title' />
+                        </h2>             
+                        <span class="image">
+                            <span t-if="p.website_meta_image" >
+                                <img t-att-src="'/web/binary/image?model=ir.ui.view&amp;id=' + p.id + '&amp;field=website_meta_image'"/>
+                            </span>
+                        </span>
+                        <span t-field="p.website_meta_description"/>
+                    </a>
+                </div>
+            </t>
+    </t>
+
+</templates>

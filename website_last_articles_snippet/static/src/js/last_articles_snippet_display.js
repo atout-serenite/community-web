@@ -6,7 +6,7 @@
 
 
 
-  
+  website.add_template_file('/website_last_articles_snippet/static/src/xml/lasts_articles_blocks.front.xml');
 
   website.snippet.animationRegistry.js_get_posts = website.snippet.Animation.extend({
     selector : ".last_articles_snippets",
@@ -34,13 +34,30 @@
       this.$target.empty();
     },
     build: function() {
-      mainObject = this.getMainObject();
+      var mainObject = this.getMainObject();
 
-      $.get("/website_last_articles_snippet/render/"+ mainObject[1] + "/" + mainObject[2], 
-          function( data ) {
-            $('.last_articles_snippets').html(data);
-  
-          });
+      var self = this;
+
+      var domain = [['page','=','True'],['active','=','True']]
+
+      if (mainObject[1] == 'ir.ui.view')
+      {
+        domain.push(['id','<',mainObject[2]]);
+      }
+
+      openerp.jsonRpc('/web/dataset/call_kw', 'call', {
+                model: 'ir.ui.view',
+                method: 'search_read',
+                args: [],
+                kwargs: {
+                    fields: ['website_meta_image', 'website_meta_title', 'website_meta_description'],
+                    domain: domain,
+                    order: 'create_date desc',
+                    limit: 3
+                }
+            }).then( function(data) {
+                self.$el.append(openerp.qweb.render("website_last_articles_snippet.liste_articles", {"posts": data}));
+            });
     }
 
   })
