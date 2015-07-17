@@ -3,7 +3,7 @@
     <t t-name="website_last_articles_snippet.liste_articles">
             <t t-foreach='posts'  t-as='p'>
                 <div class='col-md-4'>
-                    <a t-att-href="'/page/' + p.id ">
+                    <a t-att-href="'/page/' + p.slug ">
                         <h2>
                             <span t-esc='p.website_meta_title' />
                         </h2>             
