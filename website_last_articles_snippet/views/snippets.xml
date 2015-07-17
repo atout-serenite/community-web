@@ -39,21 +39,6 @@
             </div>
         </xpath>
     </template>
-    <template id="liste_articles" name='liste Article'>
-            <t t-foreach='posts'  t-as='p'>
-                <div class='col-md-4'>
-                    <a t-att-href="'/page/%s'%p.id ">
-                        <h2 t-esc='p.website_meta_title' />             
-                        <span class="image">
-                            <span t-if="p.website_meta_image" >
-                                <img t-att-src="website.image_url(p, 'website_meta_image')"/>
-                            </span>
-                        </span>
-                        <span t-field="p.website_meta_description"/>
-                    </a>
-                </div>
-            </t>
-    </template>
 
     <template id="styles" inherit_id="website.assets_frontend" name="Last Articles snippet">
         <xpath expr="/t" position="inside">
