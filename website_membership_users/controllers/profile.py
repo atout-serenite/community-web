@@ -425,11 +425,17 @@ class profile_controller(http.Controller):
         #
         if 'products' in data:
             product_ids = data['products'].split(',')
-            if (len(product_ids) > 0):
-                sale_order = request.website.sale_get_order(force_create=1)
-                for product_id in product_ids:
+            #if (len(product_ids) > 0 and isinstance(product_ids[0],(int, long))):
+            sale_order = request.website.sale_get_order(force_create=1)
+            redirect_checkout = False
+            for product_id in product_ids:
+                try:
                     sale_order._cart_update(product_id=int(product_id), set_qty=1)
+                    redirect_checkout = True
+                except ValueError:
+                    pass
 
+            if redirect_checkout:
                 return request.redirect("/shop/checkout")
 
 

@@ -50,7 +50,7 @@
                 method: 'search_read',
                 args: [],
                 kwargs: {
-                    fields: ['slug', 'website_meta_image', 'website_meta_title', 'website_meta_description'],
+                    fields: ['slug', 'website_meta_image', 'website_meta_title', 'website_meta_description' , 'name'],
                     domain: domain,
                     order: 'create_date desc',
                     limit: 3

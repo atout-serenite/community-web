@@ -16,11 +16,11 @@ class website_seo_metadata(osv.Model):
         result = {}
         for id in ids:
             model_pool = self.pool.get("ir.model.data")
-            ids = model_pool.search(cr, uid, [('module','=','website'), ('res_id','=', id)])
-            if not ids:
+            valeurid = model_pool.search(cr, uid, [('module','=','website'), ('res_id','=', id)])
+            if not valeurid:
                 raise ValueError('External ID not found in the system: %s' % (id))
             # the sql constraints ensure us we have only one result
-            res = model_pool.read(cr, uid, ids[0], ['name'])
+            res = model_pool.read(cr, uid, valeurid[0], ['name'])
             if not res['name']:
                 raise ValueError('External ID not found in the system: %s' % (id))
             result[id] = res['name']

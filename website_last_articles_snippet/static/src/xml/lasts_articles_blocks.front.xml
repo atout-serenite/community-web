@@ -5,14 +5,15 @@
                 <div class='col-md-4'>
                     <a t-att-href="'/page/' + p.slug ">
                         <h2>
-                            <span t-esc='p.website_meta_title' />
+                            <span t-if='p.website_meta_title != false' t-esc='p.website_meta_title' />
+                            <span t-if='p.website_meta_title == false' t-esc='p.name' />
                         </h2>             
                         <span class="image">
                             <span t-if="p.website_meta_image" >
                                 <img t-att-src="'/web/binary/image?model=ir.ui.view&amp;id=' + p.id + '&amp;field=website_meta_image'"/>
                             </span>
                         </span>
-                        <span t-field="p.website_meta_description"/>
+                        <span t-if='p.website_meta_description != false' t-esc="p.website_meta_description"/>
                     </a>
                 </div>
             </t>
