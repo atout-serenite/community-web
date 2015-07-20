@@ -6,7 +6,7 @@
         <xpath expr="//div[@id='snippet_content']" position="inside">
             <div>
                 <div class="oe_snippet_thumbnail">
-                    <img class="oe_snippet_thumbnail_img" src="/last_articles_block/static/src/img/last_articles.png"/>
+                    <img class="oe_snippet_thumbnail_img" src="/website_last_articles_snippet/static/src/img/last_articles.png"/>
                     <span class="oe_snippet_thumbnail_title">Last Articles</span>
                 </div>
                 <section class="oe_snippet_body">
