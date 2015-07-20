@@ -28,7 +28,7 @@
                     <div class="col-md-2">
                         <img t-att-src="images['image_big']" class="img img-responsive thumbnail"/>
                         <div>
-                            Born : <t t-esc="birthdate"/>
+                            Born : <t t-esc="birthdate" />
                         </div>
 
                         <div class="mb32">

@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <label class="col-md-12 control-label" for="birthdate">Birthdate</label>
+                            <label class="col-md-12 control-label test-left" for="birthdate">Birthdate</label>
                             <div class="col-md-12">
                                 <div class="input-group">
                                     <input name="birthdate" id="birthdate" t-att-value="profile['partner']['birthdate']" t-att-placeholder="date_placeholder" type="text" class="date-picker-profil-edit form-control" />
