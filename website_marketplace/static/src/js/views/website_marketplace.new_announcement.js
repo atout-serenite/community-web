@@ -1,12 +1,11 @@
 openerp.website.theme.views['website_marketplace.new_announcement'] = openerp.Class.extend({
 
     init: function() {
-
         $('#category_id').on('change', function(e){
             e.preventDefault();
             
             var self = $(this);
-
+            
             openerp.jsonRpc('/marketplace/announcement_detail/tags/' + self.val() + '/get', 'call', {})
                 .then(function (data) {
                     var tag_select = $('#tag_ids');

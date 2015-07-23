@@ -15,6 +15,7 @@
                 <script src="/website_marketplace/static/src/js/views/website_marketplace.new_announcement.js"></script>
                 <script src="/website_marketplace/static/src/js/views/website_marketplace.edit_announcement.js"></script>
                 <script src="/website_marketplace/static/src/js/views/website_marketplace.view_announcement.js"></script>
+                <script src="/website_marketplace/static/src/js/views/website_marketplace.announcement.js"></script>
     		</xpath>
     	</template>
 

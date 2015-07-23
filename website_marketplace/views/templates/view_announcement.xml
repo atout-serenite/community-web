@@ -84,7 +84,7 @@
                                         <div class="col-md-2">
                                             <t t-foreach="type_dict.keys()" t-as="type">
                                                 <t t-if="type == announcement.type">
-                                                    <span class="badge badge-primary" t-esc='type_dict[type]'/>
+                                                    <span class="badge badge-primary" t-esc="type_dict[type]['name']"/>
                                                 </t>
                                             </t>
                                         </div>
@@ -257,14 +257,14 @@
                                     </t>
                                 </div>
                                 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="col-md-5 control-label" for="units">Units</label>
                                     <div class="col-md-7">
                                         <select id="units" disabled="disabled" class="selectpicker form-control">
                                             <option><t t-esc="announcement.uom_id.name"/></option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!--
                                 <div class="form-group">
                                     <label class="col-md-5 control-label" for="available">Available</label>

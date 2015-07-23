@@ -1,7 +1,7 @@
 openerp.website.theme.views['website_marketplace.edit_announcement'] = openerp.Class.extend({
 
     init: function() {
-
+        
 	    $('.remove-attachment').on('click',function(e){
 	        e.preventDefault();
 
@@ -12,7 +12,7 @@ openerp.website.theme.views['website_marketplace.edit_announcement'] = openerp.C
 	                self.parent().remove();
 	            });
 	    });
-
+        
         $('#category_id').on('change', function(e){
             e.preventDefault();
             

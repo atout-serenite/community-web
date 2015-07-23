@@ -518,8 +518,8 @@ class AnnouncementController(http.Controller):
         """ Return all state statuses
         """
         return {
-            'offer': _('Offer'),
-            'want': _('Want'),
+            'offer': { 'name' : _('Offer'),'image' :'/website_marketplace/static/src/img/offer.png'},
+            'want': { 'name' : _('Want'),'image' :'/website_marketplace/static/src/img/want.jpg'},
         }
 
     def get_vote_types(self, cr, uid, registry, context=None):

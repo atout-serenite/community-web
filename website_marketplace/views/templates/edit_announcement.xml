@@ -95,22 +95,19 @@
                                                     </t>
                                                 </select>
                                             </div>
-                                            <label class="col-md-1 control-label" for="groups">Type</label>
+
+                                            <label class="col-md-1 control-label margin0" for="groups">Type</label>
                                             <div class="col-md-2">
-                                                <select id="type" class="selectpicker form-control" name="type">
+                                                <p class="type_form">
                                                     <t t-foreach="type_dict.keys()" t-as="type">
-                                                        <t t-if="type == announcement.type">
-                                                            <option selected="selected" t-att-value="type">
-                                                                <t t-esc='type_dict[type]'/>
-                                                            </option>
-                                                        </t>
-                                                        <t t-if="type != announcement.type">
-                                                            <option t-att-value="type">
-                                                                <t t-esc='type_dict[type]'/>
-                                                            </option>
-                                                        </t>
+                                                    <t t-if="type == announcement.type">
+                                                       <span name='choixtype' class='checked'><input t-att-id="type_dict[type]['name']" type="radio" checked='true' name='type' t-att-value='type' class='invisible' ><img style='width:30px' t-att-src="type_dict[type]['image']" /><t t-esc="type_dict[type]['name']" /></input></span>
                                                     </t>
-                                                </select>
+                                                    <t t-if="type != announcement.type">
+                                                         <span name='choixtype'><input t-att-id="type_dict[type]['name']" type="radio" name='type' t-att-value='type' class='invisible' ><img style='width:30px' t-att-src="type_dict[type]['image']" /><t t-esc="type_dict[type]['name']" /></input></span>
+                                                    </t>
+                                                </t>
+                                                </p>
                                             </div>
                 
                                         </div>
@@ -266,8 +263,7 @@
                                             </div>
 
                                         </div>
-                                        
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label class="col-md-5 control-label" for="units">Units</label>
                                             <div class="col-md-7">
                                                 <select name="uom_id" class="selectpicker form-control">
@@ -287,7 +283,7 @@
                                                     </t>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         
                                         <div class="form-group">
                                             <label class="col-md-5 control-label" for="available">Available</label>
@@ -338,7 +334,9 @@
                                   </div>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-success pull-right mb64">Submit</button>
+                            <p class='text-center'>
+                                <button type="submit" name="submit" class="btn btn-success mb64">Submit</button>
+                            </p>
                         </form>
                     </section>
                     <!-- START: Replies section -->
