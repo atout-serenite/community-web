@@ -2818,10 +2818,10 @@ footer {
   text-align: center;
 }
 
+/* Market Place CSS */
 .invisible {
   display: none!important;
 }
-
 
 .type_form .checked {
   color:red;
@@ -2835,4 +2835,8 @@ footer {
 }
 .margin0 {
   margin:0!important;
+}
+
+.derouler  {
+  cursor: pointer;
 }

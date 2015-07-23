@@ -25,7 +25,28 @@ var valeur = openerp.Class.extend({
         $("#quantity").on('change',function(e){
             $('input[name=unlimited]').attr('checked', false);
         })
-        // fin modification checkbox quantite
+
+        $('.box_4').css({'display':'none'});
+        // on met en none 
+
+        $('.derouler').on('click', function(){
+
+            var donnee = $(this).next('div');
+            if(donnee.css('display') != 'block')  {
+                $('.box_4').css({'display':'none'});
+                // on remet tout à 0
+                setTimeout(function() {
+                    donnee.hide().fadeIn();
+                    donnee.css({'display':'block'});
+                }, 250 );
+            } else {
+                // on remet tout à 0
+                setTimeout(function() {
+                    donnee.hide().fadeOut();
+                    donnee.css({'display':'none'});
+                }, 250 );
+            }
+        })
     }
 });
 
