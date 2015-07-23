@@ -26,26 +26,15 @@ var valeur = openerp.Class.extend({
             $('input[name=unlimited]').attr('checked', false);
         })
 
-        $('.box_4').css({'display':'none'});
-        // on met en none 
-
-        $('.derouler').on('click', function(){
-
-            var donnee = $(this).next('div');
-            if(donnee.css('display') != 'block')  {
-                $('.box_4').css({'display':'none'});
-                // on remet tout à 0
-                setTimeout(function() {
-                    donnee.hide().fadeIn();
-                    donnee.css({'display':'block'});
-                }, 250 );
-            } else {
-                // on remet tout à 0
-                setTimeout(function() {
-                    donnee.hide().fadeOut();
-                    donnee.css({'display':'none'});
-                }, 250 );
-            }
+        $('.derouler').mouseover(function(){
+        	var donnee = $('.box_4').css('display');
+            
+            // on remet tout à 0
+            if(donnee != 'block') {
+	            setTimeout(function() {
+	                    $('.box_4').hide().fadeIn();
+	            }, 250 );
+	       	}
         })
     }
 });

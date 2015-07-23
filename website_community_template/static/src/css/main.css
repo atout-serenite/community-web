@@ -2823,6 +2823,10 @@ footer {
   display: none!important;
 }
 
+.box_4 {
+  display: none;
+}
+
 .type_form .checked {
   color:red;
 }
@@ -2839,4 +2843,7 @@ footer {
 
 .derouler  {
   cursor: pointer;
+  background-image: url('/website_marketplace/static/src/img/fleche_bas.png');
+  background-position: right;
+  background-repeat: no-repeat;
 }
