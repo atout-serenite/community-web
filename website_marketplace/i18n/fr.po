@@ -49,6 +49,27 @@ msgid "Amount"
 msgstr "Montant"
 
 #. module: website_marketplace
+#: view:website:website_marketplace.edit_announcement
+#: view:website:website_marketplace.new_announcement
+#: view:website:website_marketplace.view_announcement
+msgid "default amount"
+msgstr "Montant par défaut"
+
+#. module: website_marketplace
+#: view:website:website_marketplace.edit_announcement
+#: view:website:website_marketplace.new_announcement
+#: view:website:website_marketplace.view_announcement
+msgid "Or"
+msgstr "Ou"
+
+#. module: website_marketplace
+#: view:website:website_marketplace.edit_announcement
+#: view:website:website_marketplace.new_announcement
+#: view:website:website_marketplace.view_announcement
+msgid "And"
+msgstr "Et"
+
+#. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:1144
 #, python-format
 msgid "Announcement successfully saved"

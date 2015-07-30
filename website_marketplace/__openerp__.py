@@ -44,6 +44,8 @@ Website Marketplace
         'views/templates/mp_search.xml',
         'views/templates/mp_search_form.xml',
         'views/templates/mp_single_item.xml',
+        'views/templates/mp_single_item_parent.xml',
+        'views/templates/mp_four_item.xml',
         'views/templates/single_reply.xml',
         'views/templates/view_announcement.xml',
         'views/templates/edit_announcement.xml',

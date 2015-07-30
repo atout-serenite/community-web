@@ -104,7 +104,7 @@
                                    
                                     <div class="form-group mt16">
                                         <div class="col-md-9 pull-right">
-                                          <input placeholder="Author" type="text" class="form-control" t-att-value="author.name" readonly="readonly"/>
+                                          <input placeholder="Author" type="text" class="form-control invisible" t-att-value="author.name" readonly="readonly"/><t t-esc="author.name" />
                                         </div>
                                         <div class="col-md-9 pull-right mt16">
                                           <span t-field="author.image" t-field-options='{"widget": "image", "class": "thumbnail mb16"}'/>
@@ -120,28 +120,28 @@
                                         <div class='box_4'>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
-                                                    <input placeholder="Street" name="street" type="text" class="form-control"/>
+                                                    <input placeholder="Street" name="street" type="text" class="form-control" t-att-value="author.street"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-12">
-                                                    <input placeholder="Street2" name="street2" type="text" class="form-control"/>
+                                                    <input placeholder="Street2" name="street2" t-att-value="author.street2" type="text" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-5 no-padding-right">
-                                                    <input placeholder="Zip" name="zip" type="text" class="form-control"/>
+                                                    <input placeholder="Zip" name="zip"  t-att-value="author.zip" type="text" class="form-control"/>
                                                 </div>
                                                 <div class="col-xs-7">
-                                                    <input placeholder="City" name="city" type="text" class="form-control"/>
+                                                    <input placeholder="City" name="city" t-att-value="author.city" type="text" class="form-control"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-5 no-padding-right">
                                                     <select name="state_id" class="selectpicker form-control"> 
-                                                        <option value="None" selected="selected"></option>                      
+                                                        <option value="None" ></option>                      
                                                         <t t-foreach="us_state_dict.keys()" t-as="state_id">
-                                                            <option t-att-value='state_id'><t t-esc='us_state_dict[state_id]'/></option>
+                                                           <option t-att-value='state_id'  t-att-selected="'selected' if author.state_id.id == state_id else ''"><t t-esc='us_state_dict[state_id]'/></option>
                                                         </t>
                                                     </select>
                                                 </div>
@@ -149,7 +149,7 @@
                                                     <select name="country_id" class="form-control">
                                                         <option value="">Country</option>
                                                         <t t-foreach="country_dict.keys()" t-as="country_id">
-                                                            <option t-att-value='country_id'><t t-esc='country_dict[country_id]'/></option>
+                                                            <option t-att-value='country_id' t-att-selected="'selected' if author.country_id.id == country_id else ''"><t t-esc='country_dict[country_id]'/></option>
                                                         </t>
                                                     </select>
                                                 </div>
@@ -194,22 +194,29 @@
                                     <div class="col-md-3">
                                         <h4 class="mb16 derouler">How much?</h4>                                    
                                         <div class='box_4'>
+                                            <div class="col-xs-8 no-padding-right">
+                                                <span class='form-control ssbord'>default amount</span> 
+                                            </div>
+                                            <div class="col-xs-4 no-padding-right">
+                                                <input class="form-control" name="default_value" value="0" />
+                                            </div>
                                             <t t-foreach="range(1,len(currency_dict.keys())+1)" t-as="i">
                                                 <div class="list-item form-group">
                                                     <div class="col-xs-5 no-padding-right">
-                                                        <input placeholder="Amount" class="form-control" t-att-name="'currency_amount%s' % i"/>
+                                                        <input placeholder="Amount" class="form-control number" t-att-name="'currency_amount%s' % i"/>
                                                     </div>
-
-                                                    <!-- ICI -->
                                                     <div class="col-xs-5 no-padding-right">
-                                                        <select t-att-name="'currency_id%s' % i" class="selectpicker form-control" >
-                                                            <t t-foreach="currency_dict.keys()" t-as="currency_id">
-                                                                <option t-att-value='currency_id'><t t-esc='currency_dict[currency_id]'/></option>
-                                                            </t>
-                                                        </select>
+                                                        <!-- ICI -->
+                                                        <div class="col-xs-5 no-padding-right">
+                                                        <p class='text-center form-control ssbord'>
+                                                        <input style='display:none;' t-att-name="'currency_id%s' % i" t-att-value='currency_dict.keys()[(i-1)]' /><t t-esc='currency_dict[currency_dict.keys()[(i-1)]]'/>
+                                                        </p>
+                                                        </div>
                                                     </div>
+                                                    <p t-if="i != len(currency_dict.keys()  )" class="col-xs-12 text-center">Or / And</p>
                                                 </div>
                                             </t>
+                                            
                                         </div>
                                   </div>
                                 </div>

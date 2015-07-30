@@ -363,7 +363,7 @@ class AnnouncementController(http.Controller):
             amount_fromat_error = False
             currency_exist_error = False
             same_currency_error = False
-            for index in range(1,currency_count):
+            for index in range(1,currency_count+1):
                 amount_key = 'currency_amount%s' % index
                 id_key = 'currency_id%s' % index
                 if post.get(amount_key) and post.get(id_key):
@@ -389,9 +389,9 @@ class AnnouncementController(http.Controller):
                         currency_dict.update({currency_id: amount})
         
             post_currency_ids = [post.get(
-                'currency_id%s' % _i for _i in range(1, currency_count)
+                'currency_id%s' % _i for _i in range(1, currency_count+1)
             )]
-            for i in range(1, currency_count):
+            for i in range(1, currency_count+1):
                 if post_currency_ids.count(post.get('currency_id%s' % i)) > 1:
                     self.error_param_list.append('currency_id%s' % i)
                     same_currency_error = True
@@ -428,7 +428,7 @@ class AnnouncementController(http.Controller):
                     }})
 
                 if currency_count_delta > 0:
-                    for i in range(1, currency_count_delta + 1):
+                    for i in range(1, currency_count_delta):
                         currency_line_to_delete.append(
                             currency_ids[len(currency_ids) - i].id
                         )
@@ -1168,6 +1168,7 @@ class AnnouncementController(http.Controller):
     def save_announcement(self, announcement, **post):
         """ Route to process save announcement request
         """
+        return
         cr, uid, context, registry = request.cr, \
             request.uid, request.context, request.registry
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
@@ -1182,7 +1183,7 @@ class AnnouncementController(http.Controller):
             )
         else:
             response = request.not_found()
-        return response
+        #return response
 
     def _get_new_announcement_dict(
             self, cr, uid, registry, partner, context=None

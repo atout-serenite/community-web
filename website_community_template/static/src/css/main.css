@@ -2847,3 +2847,25 @@ footer {
   background-position: right;
   background-repeat: no-repeat;
 }
+
+.ssbord { 
+  border:0!important;
+}
+
+.espace_10 {
+  padding-left:5px!important;
+  padding-right:5px!important;
+}
+
+span[name='liste'], span[name='bigpicture'], span[name='grid'], span[name='old'] {
+  cursor: pointer
+}
+.mp_four_liste .col-md-3 .bigpicture {
+  min-height: 400px;
+}
+.mp_four_liste .col-md-6 .bigpicture {
+  min-height: 450px;
+}
+.mp_four_liste .grid {
+  min-height:220px;
+}

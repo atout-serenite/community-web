@@ -153,7 +153,7 @@
                                    
                                     <div class="form-group mt16">
                                         <div class="col-md-9 pull-right">
-                                          <input placeholder="Author" type="text" class="form-control" t-att-value="author.name" readonly="readonly"/>
+                                          <input placeholder="Author" type="text" class="form-control invisible" t-att-value="author.name" readonly="readonly"/><t t-esc="author.name" />
                                         </div>
                                         <div class="col-md-9 pull-right mt16">
                                           <span t-field="author.image" t-field-options='{"widget": "image", "class": "thumbnail mb16 announcement-author"}'/>
@@ -276,23 +276,39 @@
                                     <div class="col-md-3">
                                         <h4 class="mb16 derouler">How much?</h4>
                                         <div class='box_4'>
-                                            <t t-set="index" t-value="1"/>
+                                            <t t-foreach="range(1,len(currency_dict.keys())+1)" t-as="i">
+                                                <div class="list-item form-group">
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        <input placeholder="Amount" t-att-value="announcement.currency_ids[(i-1)].price_unit" class="form-control" t-att-name="'currency_amount%s' % i"/>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        
+                                                        <!-- ICI -->
+                                                        <div class="col-xs-5 no-padding-right">
+                                                        <p class='form-control'>
+                                                        <input style='display:none;' t-att-name="'currency_id%s' % i" t-att-value='currency_dict.keys()[(i-1)]' /><t t-esc='currency_dict[currency_dict.keys()[(i-1)]]'/>               </p>
+                                                        </div>
+                                                        <p t-if="i != len(currency_dict.keys()  )" class="col-xs-12 text-center">Or / And</p>
+                                                    </div>
+                                                </div>
+                                            </t>
+
+
+                                            <!-- <t t-set="index" t-value="1"/>
                                             <t t-foreach="announcement.currency_ids" t-as="currency_line">
                                                 <div class="list-item form-group">
                                                     <div class="col-xs-5 no-padding-right">
                                                         <input placeholder="Amount" class="form-control" t-att-name="'%s%s' % ('currency_amount', index)" t-att-value="currency_line.price_unit"/>
                                                     </div>
                                                     <div class="col-xs-5 no-padding-right">
-                                                        <select class="selectpicker form-control" t-att-name="'%s%s' % ('currency_id', index)"> 
-                                                            <t t-foreach="currency_dict.keys()" t-as="currency_id">
-                                                                <t t-if="currency_id == currency_line.currency_id.id">
-                                                                    <option selected="selected" t-att-value='currency_id'><t t-esc='currency_dict[currency_id]'/></option>
-                                                                </t>
-                                                                <t t-if="currency_id != currency_line.currency_id.id">
-                                                                    <option t-att-value='currency_id'><t t-esc='currency_dict[currency_id]'/></option>
-                                                                </t>
-                                                            </t>
-                                                        </select>
+                                                        <div class="col-xs-5 no-padding-right">                                                       
+                                                        <p class='form-control'>
+                                                        <input style='display:none;' t-att-name="'%s%s' % ('currency_id', index)" t-att-value='currency_line.currency_id.id' /><t t-esc='currency_dict[currency_line.currency_id.id]' />
+                                                        </p>
+                                                        
+                                                        </div>
                                                     </div>
                                                     <t t-set="index" t-value="index + 1"/>
                                                 </div>
@@ -310,7 +326,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </t>
+                                            </t> -->
                                         </div>
                                   </div>
                                 </div>

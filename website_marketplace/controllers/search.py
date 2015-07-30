@@ -142,6 +142,7 @@ class SearchController(http.Controller):
         mp_announcement_pool = request.registry.get('marketplace.announcement')
         category_pool = request.registry.get('marketplace.announcement.category')
         result = {'wants': [], 'offers': []}
+        resultglobal = []
         date_format = get_date_format(cr, uid, context)
         post_params = dict([(k,v) for k,v in kw.iteritems() if k in self.SEARCH_PARAMS])
         # Search in child categories
@@ -170,14 +171,75 @@ class SearchController(http.Controller):
                 result['wants'].append(item)
             else:
                 result['offers'].append(item)
+            resultglobal.append(item)
+
         return http.request.website.render('website_marketplace.mp_search', {
             'result': result,
             'page': int(kw.get('page', '1')),
             'page_count': count/self.QUERY_LIMIT + (1 if count%self.QUERY_LIMIT else 0),
             'next_url': self._get_url('next', int(kw.get('page', '1')), post_params),
             'prev_url': self._get_url('prev', int(kw.get('page', '1'))-1, post_params),
-            'format_text': format_text
+            'format_text': format_text,
+            'resultglobal': resultglobal
         })
+    
+    @http.route('/marketplace/search-function', type='http', auth="public", website=True)
+    def search_function(self, **kw):
+        cr, uid, context = request.cr, request.uid, request.context
+        mp_announcement_pool = request.registry.get('marketplace.announcement')
+        category_pool = request.registry.get('marketplace.announcement.category')
+        result = {'wants': [], 'offers': []}
+        resultglobal = []
+        date_format = get_date_format(cr, uid, context)
+        post_params = dict([(k,v) for k,v in kw.iteritems() if k in self.SEARCH_PARAMS])
+        # Search in child categories
+        category_id = int(kw.get('category','0'))
+        if category_id:
+            post_params.update({
+                'categories': category_pool.search(cr, uid, 
+                    [('id','child_of',category_id)],context=context)
+            })
+        if kw.get('choix') == None:
+            choix = kw.get('choix')
+        else :
+            choix = kw.get('choix')
+        sql = self._build_query(post_params, date_format, kw.get('limit',self.QUERY_LIMIT), int(kw.get('page','1'))-1)
+        
+        cr.execute(sql[0], sql[1] or ())
+        res_ids = [row[0] for row in cr.fetchall()]
+        res_data = mp_announcement_pool.browse(cr, uid, res_ids, context=context)
+        
+        #select number both of wants and offers
+        count_sql = self._build_query(post_params, date_format, False, False, True)
+        cr.execute(count_sql[0], count_sql[1] or ())
+        counts = cr.fetchall()
+        if len(counts) > 1:
+            count = max(counts[0][0], counts[1][0])
+        else:
+            count = counts[0][0]
+
+        for item in res_data:
+            if item.type == 'want':
+                result['wants'].append(item)
+            else:
+                result['offers'].append(item)
+            resultglobal.append(item)
+        value = {
+            'result': result,
+            'page': int(kw.get('page', '1')),
+            'page_count': count/self.QUERY_LIMIT + (1 if count%self.QUERY_LIMIT else 0),
+            'next_url': self._get_url('next', int(kw.get('page', '1')), post_params),
+            'prev_url': self._get_url('prev', int(kw.get('page', '1'))-1, post_params),
+            'format_text': format_text,
+            'resultglobal': resultglobal,
+            'resultat_choix': choix
+        }
+        if kw.get('choix') == 'old':
+            return http.request.website.render('website_marketplace.mp_single_item_parent', value)
+        else :
+            return http.request.website.render('website_marketplace.mp_four_item', value)
+
+
 
     @http.route(['/marketplace/search/load_more'], type='http', auth="public", methods=['GET'], website=True)
     def load_more(self, **kw):
@@ -203,5 +265,12 @@ class SearchController(http.Controller):
             return request.render('website_marketplace.mp_search_wants', {'result': result})
         else:
             return request.render('website_marketplace.mp_search_offers', {'result': result})
+
+
+    @http.route('/marketplace/session_affichage/<choix>/', type='json', auth="user", website=True)
+    # Ici on va mettre la session Liste / Big Picture / Grid
+    def sessionchoix(self,choix):  
+        request.session['session_choixmarketplace'] = choix
+        return request.session['session_choixmarketplace']
 
 

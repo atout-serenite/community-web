@@ -158,7 +158,7 @@
                                 </ul>
                                 <div class="form-group mt16">
                                     <div class="col-md-9 pull-right">
-                                      <input type="text" class="form-control" disabled="disabled" t-att-value="author.name"/>
+                                      <input type="text" class="form-control invisible" disabled="disabled" t-att-value="author.name"/><t t-esc="author.name" />
                                     </div>
                                     <div class="col-md-9 pull-right mt16">
                                       <span t-field="author.image" t-field-options='{"widget": "image", "class": "thumbnail mb16 announcement-author"}'/>
