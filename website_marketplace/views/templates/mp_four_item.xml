@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Template of single offer/want to call in search result block or somewhere else -->
+        <template id="mp_four_item">
+                <t t-foreach="resultglobal" t-as="item">
+                    <div class="col-md-3 modWants" t-if="resultat_choix == 'bigpicture' or resultat_choix == 'liste' ">
+                        <p class='titre_mod' t-esc='item.type' />
+                        <div class="col-md-11 thumbnail espace_10 bigpicture">
+                            <div t-field="item.picture" t-field-options='{"widget": "image", "class": "img img-responsive" }'/>
+                            <t t-if="request.session.uid">
+                               <p class="text-muted mt8"><span t-esc="item.partner_id.name"/></p>
+                            </t>
+                            <h3 class="mt0">
+                                <a t-attf-href="/marketplace/announcement_detail/#{item.id}">
+                                    <span t-field="item.name"/>
+                                    <t t-if="item.state == 'draft'">
+                                         [Draft]
+                                    </t>
+                                </a>
+                            </h3>
+                            <p class="text-justify-search" t-field="item.description" style="max-height:150px; min-height:150px"/>
+                            <p class="text-muted text-right">
+                                <t t-foreach="item.currency_ids" t-as="price">
+                                    <span class="label label-default">
+                                        <span t-field="price.price_unit"/>
+                                        <span t-esc="price.currency_id.name"/>
+                                    </span>
+                                </t>
+                                <t t-if="item.quantity_available">
+                                    <span class="label label-default">
+                                        <span t-field="item.quantity_available"/>
+                                        <span t-esc="item.uom_id.name"/>
+                                    </span>
+                                </t>
+                                <t t-if="item.expiration_date">
+                                    <span class="label label-default" t-field="item.expiration_date"/>
+                                </t>
+                                <t t-if="item.city">
+                                    <span class="label label-default" t-field="item.city"/>
+                                </t><br />
+                                <span class="badge" t-esc="len(item.proposition_ids)" /> replies
+                            </p>
+                        </div>
+                        <div class="col-md-1" />
+                    </div>
+                    <!-- si le choix est la liste -->
+                    <div class="col-md-6 modWants" t-if="resultat_choix == 'grid'">
+                        <div class="row">
+                            <div class="col-md-11 thumbnail mb32 grid">
+                                <div class="col-md-3 mt16">
+                                    <div class="col-md-12">
+                                        <p class='titre_mod' t-esc='item.type' />
+                                        <div class="row" t-field="item.picture" t-field-options='{"widget": "image", "class": "img img-responsive thumbnail" }'/>
+                                        <t t-if="request.session.uid">
+                                            <div class="row">
+                                                <p class="text-muted mt8"><span t-esc="item.partner_id.name"/></p>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-9 mt16 clearfix">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <h3 class="mt0">
+                                                <a t-attf-href="/marketplace/announcement_detail/#{item.id}">
+                                                    <span t-field="item.name"/>
+                                                    <t t-if="item.state == 'draft'">
+                                                         [Draft]
+                                                    </t>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <p class="text-justify-search" t-field="item.description" style=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 mt16">
+                                    <t t-foreach="item.currency_ids" t-as="price">
+                                        <p class="text-muted text-right"><span class="label label-default"><span t-field="price.price_unit"/> <span t-esc="price.currency_id.name"/></span></p>
+                                    </t>
+                                    <t t-if="item.quantity_available"><p class="text-muted text-right"><span class="label label-default"> <span t-field="item.quantity_available"/> <span t-esc="item.uom_id.name"/></span></p></t>
+                                    <t t-if="item.expiration_date"><p class="text-muted text-right"><span class="label label-default" t-field="item.expiration_date"/></p></t>
+                                    <t t-if="item.city"><p class="text-muted text-right"><span class="label label-default" t-field="item.city"/></p></t>
+                                    <p class="text-muted text-right"><span class="badge" t-esc="len(item.proposition_ids)"></span> replies</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1" />
+                        </div>
+                    </div>
+                </t>
+        </template>
+    </data>
+</openerp>
