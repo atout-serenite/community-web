@@ -45,6 +45,16 @@
     /*cursor:help;*/
 }
 
+div.blog_title {
+    position: relative;
+}
+
+#blog_title_author {
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
 .form-group {
     position: relative;
 }

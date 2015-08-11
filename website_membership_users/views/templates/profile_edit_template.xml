@@ -401,29 +401,37 @@
         <!-- Profile Edit Page -->
         <template id="profile_edit">
             <t t-call="website.layout">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h2 class="mt32 mb32 row">
-                            <div class="col-md-2">I am</div>
-                            <div class="col-md-2">
-                                <select name="title" id="gender" class="selectpicker form-control">
-                                    <t t-foreach="partner_titles" t-as="title">
-                                        <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><t t-esc="title[1]"/></option>
-                                    </t>
-                                </select> 
-                            </div>
-                            <div class="col-md-8">
-                                <input name="name" id="firstname" t-att-value="profile['partner']['name']" type="text" class="form-control" placeholder="Name"/>
-                                <t t-if="'name' in errors">
-                                    <p class="bg-danger">
-                                        <t t-esc="errors['name']"/>
-                                    </p>
-                                </t>
-                            </div>
-                        </h2>
-                    </div>
-                </div>
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h2 class="mt32 mb32 row">
+                                <div class="col-md-2">I am</div>
+                                <div class="col-md-2">
+                                    <select name="title" id="gender" class="selectpicker form-control">
+                                        <t t-foreach="partner_titles" t-as="title">
+                                        <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><t t-esc  ="title[1]"/></option>
+                                        </t>
+                                    </select> 
+                                </div>
+                                <div class="col-md-4">
+                                <input name="name" id="firstname" t-att-value="profile['partner']['name']" type="text" class="form-control" placeholder="Name"  />
+                                    <t t-if="'name' in errors">
+                                        <p class="bg-danger">
+                                            <t t-esc="errors['name']"/>
+                                        </p>
+                                    </t>
+                                </div>
+                                <div class="col-md-4">
+                                    <input name="ref" id="ref" t-att-value="profile['partner']['ref']" type="text" class="form-control" placeholder="Reference"/>
+                                    <t t-if="'ref' in errors">
+                                        <p class="bg-danger">
+                                            <t t-esc="errors['ref']"/>
+                                        </p>
+                                    </t>
+                                </div>
+                            </h2>
+                        </div>
+                    </div>
                     <t t-call="website_membership_users.profile_edit_general"/>
                     <t t-call="website_membership_users.profile_edit_resources"/>
                     <t t-call="website_membership_users.profile_edit_memberships" />

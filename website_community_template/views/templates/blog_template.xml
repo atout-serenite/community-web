@@ -9,12 +9,14 @@
         <h1 t-field="blog_post.name" id="blog_post_name" t-att-data-blog-id="blog_post.id"/>
         <h2 t-field="blog_post.subtitle"/>
         <p class="post-meta text-muted text-center" name="blog_post_data"/>
-        <div>
+        <div id="blog_title_author">
             <span t-field="blog_post.author_avatar" t-field-options='{"widget": "image", "class": "img-circle", "style":"width: 30px; margin-right: 10px; display:inline"}' />
             <span t-field="blog_post.author_id" style="display: inline-block;" t-field-options='{
                 "widget": "contact",
                 "fields": ["name"]
             }'/>
+            <br/>
+            <span class="fa fa-calendar"> <span t-field="blog_post.create_date" t-field-options='{"format": "dd/MM/yyyy"}'/> &amp;nbsp;</span>
         </div>
         <div t-if="blog_post.background_image" id="blog_angle_down">
             <strong><a href="#blog_content" class="fa fa-angle-down fa-3x fa-inverse mt32"/></strong>
