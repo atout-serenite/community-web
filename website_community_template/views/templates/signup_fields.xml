@@ -3,17 +3,17 @@
     <data>
         <template id="signup_fields">
             <t t-call="web.database_select"/>
-                <div class="col-xs-12">
+                <div class="form-group field-login">
                     <input type="text" name="login" t-att-value="login" id="login" class="form-control  required last mb8" autofocus="autofocus"
                 required="required" t-att-readonly="'readonly' if only_passwords else None" placeholder="Your email"/>
                 <span class="glyphicon glyphicon-asterisk"></span>
                 </div>
-                <div class="col-xs-12">
+                <div class="form-group field-password">
                     <input type="password" name="password" id="password" class="form-control  required first"
                     required="required" t-att-autofocus="'autofocus' if only_passwords else None" placeholder="Password"/>
                 <span class="glyphicon glyphicon-asterisk"></span>
                 </div>
-                <div class="col-xs-12">
+                <div class="form-group field-password">
                     <input type="password" name="confirm_password" id="confirm_password" class="form-control  required first"
                     required="required" placeholder="Repeat Password"/>
                 <span class="glyphicon glyphicon-asterisk"></span>

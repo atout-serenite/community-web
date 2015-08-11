@@ -40,51 +40,51 @@
                     </div>
                     <div class="col-md-10">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-7">
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-2 col-xs-2 control-label" for="street1">Street #1</label>
-                                        <div class="col-md-10 col-xs-10">
+                                        <label class="col-md-3 col-xs-3 control-label" for="street1">Street #1</label>
+                                        <div class="col-md-9 col-xs-9">
                                             <t t-esc="partner.street"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-2 col-xs-2 control-label" for="street2">Street #2</label>
-                                        <div class="col-md-10 col-xs-10">
+                                        <label class="col-md-3 col-xs-3 control-label" for="street2">Street #2</label>
+                                        <div class="col-md-9 col-xs-9">
                                             <t t-esc="partner.street2"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-2 col-xs-2 control-label" for="zip">Postalcode</label>
-                                        <div class="col-md-10 col-xs-10">
+                                        <label class="col-md-3 col-xs-3 control-label" for="zip">Postalcode</label>
+                                        <div class="col-md-9 col-xs-9">
                                             <t t-esc="partner.zip"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-2 col-xs-2 control-label" for="city">City</label>
-                                        <div class="col-md-10 col-xs-10">
+                                        <label class="col-md-3 col-xs-3 control-label" for="city">City</label>
+                                        <div class="col-md-9 col-xs-9">
                                             <t t-esc="partner.city"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-2 col-xs-2 control-label" for="state">State</label>
-                                        <div class="col-md-10 col-xs-10">
+                                        <label class="col-md-3 col-xs-3 control-label" for="state">State</label>
+                                        <div class="col-md-9 col-xs-9">
                                             <t t-esc="partner.state_id.name"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class="col-md-2 col-xs-2 control-label" for="country">Country</label>
-                                        <div class="col-md-10 col-xs-10">
+                                        <label class="col-md-3 col-xs-3 control-label" for="country">Country</label>
+                                        <div class="col-md-9 col-xs-9">
                                             <t t-esc="partner.country_id.name"/>
                                         </div>
                                     </div>

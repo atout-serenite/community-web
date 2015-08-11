@@ -45,6 +45,10 @@
     /*cursor:help;*/
 }
 
+.form-group {
+    position: relative;
+}
+
 .tip-content {
         position:absolute;
         top:30px; /* - top padding */
