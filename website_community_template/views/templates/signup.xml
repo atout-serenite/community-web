@@ -23,8 +23,6 @@
                                 </p>
                                 <input type="hidden" name="redirect" value="/"/>
                                 <input type="hidden" name="token" t-att-value="token"/>
-                                <br/><br/>
-                                <br/><br/><br/><br/><br/><br/>
                                 <div class="clearfix oe_login_buttons">
 
                                     <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link pull-right">Back to Login</a>
