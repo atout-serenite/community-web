@@ -31,6 +31,7 @@ Introduce a sniipt that displays the last 3 articles posted
     'author': 'Author Name • David Mills <dmills@atout-serenite.com>',
     'depends': [
         'website',
+        'website_blog',
     ],
     'data': [
         'views/snippets.xml',
