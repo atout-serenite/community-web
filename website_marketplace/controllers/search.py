@@ -173,6 +173,10 @@ class SearchController(http.Controller):
                 result['offers'].append(item)
             resultglobal.append(item)
 
+        if 'session_choixmarketplace' not in request.session:
+            request.session['session_choixmarketplace'] = 'bigpicture'
+
+
         return http.request.website.render('website_marketplace.mp_search', {
             'result': result,
             'page': int(kw.get('page', '1')),
