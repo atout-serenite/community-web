@@ -129,5 +129,5 @@ class GroupsView(orm.Model):
             xml_content = etree.tostring(
                 xml, pretty_print=True, xml_declaration=True, encoding="utf-8"
             )
-            view.write({'arch': xml_content})
+#            view.write({'arch': xml_content})
         return res
