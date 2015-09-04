@@ -1,7 +1,11 @@
-# Wezer Marketplace module #
-WeZer is an open source cooperation platform built to make businesses and communities more effective. It is a product of Valeureux, “The Factory of Common goods Wealth Actualisation Tools”, which is studying, designing and teaching for many years about cooperation and sharing value.
+![valeureux-wezer-exchange](https://www.wezer.org/website/image/ir.attachment/42_999b2e2/datas)
+
+WeZer Exchange is an open source cooperation platform built to make businesses and communities more effective. It is a product of Valeureux, “The Factory of Common goods Wealth Actualisation Tools”, which is studying, designing and teaching for many years about cooperation and sharing value.
 
 As a software product, WeZer aims to bring many tools normally found separately into one environment, where they will be more effective, more integrated, and easier to use. As a platform, and a distribution of Odoo (ex Open ERP), anyone is invited to contribute plugins. As a tool, WeZer supports the latest thinking in organisational management and collective intelligence. WeZer is more than a tool, it’s a full device composed by a web app, an ‘implementation journey’, a community and a research program. WeZer is a systemic solution to boost cooperation, to dynamise the We!
+
+![valeureux-wezer-mkp](http://i.imgur.com/0z42XFi.png)
+
 
 More information about the platform on http://wezer.org
 
@@ -35,7 +39,6 @@ addons_path = /opt/odoo/odoo-server/addons, /opt/odoo/custom/addons
 
 In this case you have to install the modules into /opt/odoo/custom/addons. At the present stage on dependency could not automatically resolved so you have to install one extra module that vertical community depends on. This module is available from the Github repositories.
 
-<br><br>
 git clone https://github.com/OCA/account-financial-tools.git
 <br>
 git clone http://github.com/ingadhoc/odoo-addons.git
