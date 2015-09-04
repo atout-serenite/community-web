@@ -1,0 +1,151 @@
+/* add for space under images,photos and buttons*/
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    padding-bottom: 10px;
+}
+
+/* photos alignment */
+.col-md-12 {
+    padding-left: 1px;
+}
+
+/* add for space under text area and buttons */
+.form-control {
+    margin-bottom: 10px;
+}
+
+/* alignment annoucment status */
+.mt0 {
+    margin-right: 20px;
+}
+
+/* reduction of number of lines in announce short description  */
+.text-justify-search {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 6em;
+  line-height: 1em;
+  text-overflow: ellipsis;
+}
+
+/* width reduction of labels  */
+.label-default {
+
+    display: inline-flex;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* add speech bubbles under icons ---------------------------------------------------------*/
+
+/* Hover tooltips */
+.field-tip {
+    position:relative;
+    /*cursor:help;*/
+}
+
+div.blog_title {
+    position: relative;
+}
+
+#blog_title_author {
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.tip-content {
+        position:absolute;
+        top:30px; /* - top padding */
+        right:9999px;
+        width:200px;
+        margin-right:-70px; /* width + left/right padding */
+        padding:4px;
+        color:#fff;
+        background:#3071A9;
+        border-color: #285E8E;
+        text-align: center;
+        -webkit-box-shadow:2px 2px 5px #aaa;
+           -moz-box-shadow:2px 2px 5px #aaa;
+                box-shadow:2px 2px 5px #aaa;
+        opacity:0;
+        -webkit-transition:opacity 250ms ease-out;
+           -moz-transition:opacity 250ms ease-out;
+            -ms-transition:opacity 250ms ease-out;
+             -o-transition:opacity 250ms ease-out;
+                transition:opacity 250ms ease-out;
+        z-index: 50000;
+    }
+
+/* <http://css-tricks.com/snippets/css/css-triangle/> */
+.field-tip .tip-content:before {
+            content:' '; /* Must have content to display */
+            position:absolute;
+            bottom: 100%; left: 50%;
+            width:0;
+            height:0;
+            border-width: 8px; margin-left: -8px;
+            border:8px solid transparent;
+            border-bottom-color: #285E8E;
+
+
+        }
+
+ .field-tip:hover .tip-content {
+            right:-20px;
+            opacity:0.8;
+        }
+
+ /* required fields during signup  ---------------------------------------------------------*/
+
+.form-control {
+    padding-right: 30px;
+}
+
+.form-control + .glyphicon {
+    position: absolute;
+    right: 0;
+    padding: 12px 27px;
+    color: red;
+}
+
+.under
+{
+position:absolute;
+left:0px;
+top:0px;
+z-index:98;
+}
+
+.over
+{
+position: float: right;;
+left:20px;
+top:0px;
+z-index:100;
+}
+
+.label-default-name {
+
+    display: inline-flex;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #5a356d;
+}
+
+
+ /* blog cover article  ---------------------------------------------------------*/
+.cover.wezer {
+  background-color: white;
+  color: rgb(51, 51, 51);
+}
+.cover.wezer .blog_title
+{
+    position: initial;
+}

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website_marketplace.edit_announcement" name="View announcement">
+
+            <t t-call="website.layout">
+
+               <!-- removed by florent@valeureux <t t-call="website_marketplace.mp_search_form"/> -->
+
+                <div class="oe_structure"/>
+                    <div class="oe_structure">
+
+                    <div class="container">
+
+                        <t t-if='error_message_list'>
+                            <t t-foreach="error_message_list" t-as="message">
+                                <div class="alert alert-danger"><t t-esc="message"/></div>
+                            </t>
+                        </t>
+
+                        <t t-if='success_message_list'>
+                            <t t-foreach="success_message_list" t-as="message">
+                                <div class="alert alert-success"><t t-esc="message"/></div>
+                            </t>
+                        </t>
+                    </div>
+                    
+                    <section class="container mt32">
+                        <form action="save" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-horizontal col-md-12">
+                                        <div class="form-group">
+                
+                                            <label class="col-md-1 control-label" for="category_id">Category</label>
+                                            <div class="col-md-2">
+                                                <select id="category_id" name="category_id" class="selectpicker form-control">
+                                                    <t t-if="bool(announcement.category_id) == False">
+                                                        <option value="None" selected="selected"></option>                      
+                                                    </t>
+                                                    <t t-if="bool(announcement.category_id) != False">
+                                                        <option value="None"></option>                      
+                                                    </t>
+                                 
+                                                    <t t-foreach="category_dict.keys()" t-as="category_id">
+                                                        <t t-if="category_id == announcement.category_id.id">
+                                                            <option selected="selected" t-att-value='category_id'><span t-esc='category_dict[category_id]'/></option>
+                                                        </t>
+                                                        <t t-if="category_id != announcement.category_id.id">
+                                                            <option t-att-value='category_id'><span t-esc='category_dict[category_id]'/></option>
+                                                        </t>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                  
+                                            <label class="col-md-1 control-label" for="tag_ids">Tags</label>
+                                            <div class="col-md-2">
+                                                <select id="tag_ids" name="tag_ids" multiple="multiple" class="selectpicker form-control">
+                                                    <t t-if="bool(announcement.tag_ids) == False">
+                                                        <option value="None" selected="selected"></option>                      
+                                                    </t>
+                                                    <t t-if="bool(announcement.tag_ids) != False">
+                                                        <option value="None"></option>                      
+                                                    </t>
+                                                    
+                                                    <t t-foreach="announcement.tag_ids" t-as="tag">
+                                                        <t t-if="tag.id in tag_dict.keys()">
+                                                            <option selected="selected" t-att-value='tag.id'><span t-esc='tag_dict[tag.id]'/></option>
+                                                        </t>
+                                                    </t>
+                                                    <!-- need to append with json request to get tag by category by js-->
+                                                    </select>
+                                            </div>
+                                        
+                                            <label class="col-md-1 control-label" for="groups">Groups</label>
+                                            <div class="col-md-2">
+                                                <select id="groups" class="selectpicker form-control" name="groups" multiple="multiple">
+                                                    <t t-if="len(announcement.context_group_ids) == 0">
+                                                        <option selected="selected" value="None"></option>                      
+                                                    </t>
+                                                    <t t-if="len(announcement.context_group_ids) > 0">
+                                                        <option value="None"></option>                      
+                                                    </t>
+                                                    <t t-foreach="group_dict.keys()" t-as="group_id">
+                                                        <t t-if="group_id in announcement_group_ids">
+                                                            <option selected="selected" t-att-value="group_id">
+                                                                <t t-esc='group_dict[group_id]'/>
+                                                            </option>
+                                                        </t>
+                                                        <t t-if="group_id not in announcement_group_ids">
+                                                            <option t-att-value="group_id">
+                                                                <t t-esc='group_dict[group_id]'/>
+                                                            </option>
+                                                        </t>
+                                                    </t>
+                                                </select>
+                                            </div>
+
+                                            <label class="col-md-1 control-label margin0" for="groups">Type</label>
+                                            <div class="col-md-2">
+                                                <p class="type_form">
+                                                    <t t-foreach="type_dict.keys()" t-as="type">
+                                                    <t t-if="type == announcement.type">
+                                                       <span name='choixtype' class='checked'><input t-att-id="type_dict[type]['name']" type="radio" checked='true' name='type' t-att-value='type' class='invisible' ><img style='width:30px' t-att-src="type_dict[type]['image']" /><t t-esc="type_dict[type]['name']" /></input></span>
+                                                    </t>
+                                                    <t t-if="type != announcement.type">
+                                                         <span name='choixtype'><input t-att-id="type_dict[type]['name']" type="radio" name='type' t-att-value='type' class='invisible' ><img style='width:30px' t-att-src="type_dict[type]['image']" /><t t-esc="type_dict[type]['name']" /></input></span>
+                                                    </t>
+                                                </t>
+                                                </p>
+                                            </div>
+                
+                                        </div>
+                                    </div>
+                              </div>
+                            </div>
+                
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="col-md-12">
+                                        <span>
+                                            <img class="img img-responsive" t-att-src="announcement_picture"/>
+                                        </span>
+                                        <span class="btn btn-primary btn-file mt16">
+                                            Upload new picture 
+                                            <input type="file" name="picture"/>
+                                        </span>  
+                                        <div class="files-to-upload mt8 mb8"/>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                
+                                            <span class="mt16 btn btn-primary btn-file">
+                                                Upload new document 
+                                                <input type="file" name="document" multiple="multiple"/>
+                                            </span>  
+                                            <div class="files-to-upload mt8 mb8"/> 
+                    
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-5">
+                                    <input type="hidden" name='state' t-att-value="announcement.state"/>
+                                    <input placeholder="Title" name="title" class="form-control" t-att-value="announcement.name"/> 
+                                    <h5>Description</h5>
+                                    <textarea class="form-control" rows="6" cols="20" name="description"><t t-esc="announcement.description"/></textarea>
+                                </div>
+                
+                                <div class="col-md-4">
+                                   
+                                    <div class="form-group mt16">
+                                        <div class="col-md-9 pull-right">
+                                          <input placeholder="Author" type="text" class="form-control invisible" t-att-value="author.name" readonly="readonly"/><t t-esc="author.name" />
+                                        </div>
+                                        <div class="col-md-9 pull-right mt16">
+                                          <span t-field="author.image" t-field-options='{"widget": "image", "class": "thumbnail mb16 announcement-author"}'/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="form-horizontal">
+                                <div class="row mt32">
+                                    <div class="col-md-3">
+                                        <h4 class="mb16 derouler">Where?</h4>
+                                        <div class='box_4'>
+                                            <div class="form-group">
+                                                <div class="col-xs-12">
+                                                    <input placeholder="Street" name="street" type="text" class="form-control" t-att-value="announcement.street"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-xs-12">
+                                                    <input placeholder="Street2" name="street2" type="text" class="form-control" t-att-value="announcement.street2"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-xs-5 no-padding-right">
+                                                    <input placeholder="Zip" name="zip" type="text" class="form-control" t-att-value="announcement.zip"/>
+                                                </div>
+                                                <div class="col-xs-7">
+                                                    <input placeholder="City" name="city" type="text" class="form-control" t-att-value="announcement.city"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-xs-5 no-padding-right">
+                                                    <select name="state_id" class="selectpicker form-control"> 
+                                                        <t t-if="bool(announcement.state_id) == False">
+                                                            <option value="None" selected="selected"></option>                      
+                                                        </t>
+                                                        <t t-if="bool(announcement.state_id) != False">
+                                                            <option value="None"></option>                      
+                                                        </t>
+
+                                                        <t t-foreach="us_state_dict.keys()" t-as="state_id">
+                                                            <t t-if="state_id == announcement.state_id.id">
+                                                                <option selected="selected" t-att-value='state_id'><t t-esc='us_state_dict[state_id]'/></option>
+                                                            </t>
+                                                            <t t-if="state_id != announcement.state_id.id">
+                                                                <option t-att-value='state_id'><t t-esc='us_state_dict[state_id]'/></option>
+                                                            </t>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-7">
+                                                   <select name="country_id" class="selectpicker form-control">
+                                                        <t t-if="bool(announcement.country_id) == False">
+                                                            <option value="None" selected="selected"></option>                      
+                                                        </t> 
+                                                        <t t-if="bool(announcement.country_id) != False">
+                                                            <option value="None"></option>                      
+                                                        </t>
+                                                        <t t-foreach="country_dict.keys()" t-as="country_id">
+                                                            <t t-if="country_id == announcement.country_id.id">
+                                                                <option selected="selected" t-att-value='country_id'><t t-esc='country_dict[country_id]'/></option>
+                                                            </t>
+                                                            <t t-if="country_id != announcement.country_id.id">
+                                                                <option t-att-value='country_id'><t t-esc='country_dict[country_id]'/></option>                         
+                                                            </t>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <h4 class="mb16 derouler">When?</h4>
+                                        <div class='box_4'>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="date-picker-1">From</label>
+                                                <div class="col-md-9">
+                                                    <input name="date_from" type="text" class="date-picker form-control" t-att-value="date_from" t-att-placeholder="date_placeholder"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="date-picker-2">To</label>
+                                                <div class="col-md-9">
+                                                    <input name="date_to" id="date-picker-2" type="text" class="date-picker form-control" t-att-value="date_to" t-att-placeholder="date_placeholder"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="col-md-3">
+                                        <h4 class="mb16 derouler">Quantity?</h4>
+                                        <div class='box_4'>
+                                            <div class="form-group">
+                                                <div class="col-md-5 control-label">
+                                                    <t t-if="announcement.infinite_qty == False">
+                                                        <input name="unlimited" type="checkbox"/>
+                                                    </t>
+                                                    <t t-if="announcement.infinite_qty">
+                                                        <input name="unlimited" type="checkbox" checked="checked"/>
+                                                    </t>
+                                                    <label for="quantity">Infinite</label>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input placeholder="Quantity" name="qty" id="quantity" type="text" class="form-control" t-att-value="announcement.quantity"/>
+                                                </div>
+
+                                            </div>                                       
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label" for="available">Available</label>
+                                                <div class="col-md-7">
+                                                    <input id="available" type="text" class="form-control" placeholder="Available" t-att-value="announcement.quantity_available" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <h4 class="mb16 derouler">How much?</h4>
+                                        <div class='box_4'>
+                                            <t t-foreach="range(1,len(currency_dict.keys())+1)" t-as="i">
+                                                <div class="list-item form-group">
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        <input placeholder="Amount" t-att-value="announcement.currency_ids[(i-1)].price_unit" class="form-control" t-att-name="'currency_amount%s' % i"/>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        
+                                                        <!-- ICI -->
+                                                        <div class="col-xs-5 no-padding-right">
+                                                        <p class='form-control'>
+                                                        <input style='display:none;' t-att-name="'currency_id%s' % i" t-att-value='currency_dict.keys()[(i-1)]' /><t t-esc='currency_dict[currency_dict.keys()[(i-1)]]'/>               </p>
+                                                        </div>
+                                                        <p t-if="i != len(currency_dict.keys()  )" class="col-xs-12 text-center">Or / And</p>
+                                                    </div>
+                                                </div>
+                                            </t>
+
+
+                                            <!-- <t t-set="index" t-value="1"/>
+                                            <t t-foreach="announcement.currency_ids" t-as="currency_line">
+                                                <div class="list-item form-group">
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        <input placeholder="Amount" class="form-control" t-att-name="'%s%s' % ('currency_amount', index)" t-att-value="currency_line.price_unit"/>
+                                                    </div>
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        <div class="col-xs-5 no-padding-right">                                                       
+                                                        <p class='form-control'>
+                                                        <input style='display:none;' t-att-name="'%s%s' % ('currency_id', index)" t-att-value='currency_line.currency_id.id' /><t t-esc='currency_dict[currency_line.currency_id.id]' />
+                                                        </p>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                    <t t-set="index" t-value="index + 1"/>
+                                                </div>
+                                            </t>
+                                            <t t-foreach="range(len(announcement.currency_ids), len(currency_dict))" t-as="i">
+                                                <div class="list-item form-group">
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        <input placeholder="Amount" class="form-control" t-att-name="'%s%s' % ('currency_amount', i)"/>
+                                                    </div>
+                                                    <div class="col-xs-5 no-padding-right">
+                                                        <select class="selectpicker form-control" t-att-name="'%s%s' % ('currency_id', i)"> 
+                                                            <t t-foreach="currency_dict.keys()" t-as="currency_id">
+                                                                <option t-att-value='currency_id'><t t-esc='currency_dict[currency_id]'/></option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </t> -->
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <p class='text-center'>
+                                <button type="submit" name="submit" class="btn btn-success mb64">Submit</button>
+                            </p>
+                        </form>
+                    </section>
+                    <!-- START: Replies section -->
+                    <section class="bg-info pt32 mt32"> 
+                        <div class="container">
+                            <h2 class="col-md-12 mt0">Who has replied?</h2>
+                        </div>
+
+                        <t t-foreach="announcement.proposition_ids" t-as="reply">
+                            <t t-call="website_marketplace.single_reply"/>
+                        </t>
+                        
+                    </section>
+                </div>
+                <div class="oe_structure"/>
+            </t>
+        </template>
+    </data>
+</openerp>

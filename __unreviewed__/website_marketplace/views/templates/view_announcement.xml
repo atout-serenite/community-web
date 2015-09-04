@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website_marketplace.view_announcement" name="View announcement">
+
+            <t t-call="website.layout">
+
+               <!-- removed by florent@valeureux <t t-call="website_marketplace.mp_search_form"/> -->
+
+                <div class="oe_structure"/>
+                    <div class="oe_structure">
+                        
+                    <div class="container">
+                        <!-- TODO: remove on release -->
+                        <t t-if='error_param_list'>
+                            <t t-foreach="error_param_list" t-as="message">
+                                <div class="alert alert-danger"><t t-esc="message"/></div>
+                            </t>
+                        </t>
+
+                        <t t-if='error_message_list'>
+                            <t t-foreach="error_message_list" t-as="message">
+                                <div class="alert alert-danger"><t t-esc="message"/></div>
+                            </t>
+                        </t>
+
+                        <t t-if='success_message_list'>
+                            <t t-foreach="success_message_list" t-as="message">
+                                <div class="alert alert-success"><t t-esc="message"/></div>
+                            </t>
+                        </t>
+                    </div>
+
+<!-- Removed by florent @valeureux *************************
+
+                    <div class="container">
+                        <div class="col-md-12">
+                            <t t-if="announcement.is_user">
+                                <a class="btn btn-primary mt32 mb16" t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id">Edit</a>
+                            </t>
+                        </div>
+                    </div>
+************************************** -->
+                    <section class="container mt32">
+        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-horizontal col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-1 no-padding-top control-label" for="category">Category</label>
+                                        <div class="col-md-2">
+                                            <t t-if="bool(announcement.category_id) == False">
+                                                <p>none</p>
+                                            </t>
+                                            <t t-if="bool(announcement.category_id) != False">
+                                                <span class="badge badge-primary" t-esc="announcement.category_id.name"/>
+                                            </t>
+                                        </div>
+                                        <label class="col-md-1 no-padding-top control-label" for="tags">Tags</label>
+                                        <div class="col-md-2">
+                                            <t t-if="bool(announcement.tag_ids) == False">
+                                                <p>none</p>
+                                            </t>
+                                            <t t-if="bool(announcement.tag_ids) != False">
+                                                <t t-foreach="announcement.tag_ids" t-as="tag">
+                                                    <span class="badge badge-primary" t-esc='tag.name'/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    
+                                        <label class="col-md-1 no-padding-top control-label" for="groups">Groups</label>
+                                        <div class="col-md-2">
+                                            <t t-if="bool(announcement.context_group_ids) == False">
+                                                <p>none</p>
+                                            </t>
+                                            <t t-if="bool(announcement.context_group_ids) != False">
+                                                <t t-foreach="announcement.context_group_ids" t-as="group">
+                                                    <span class="badge badge-primary" t-esc='group.name'/>
+                                                </t>
+                                            </t>
+                                        </div>
+
+                                        <label class="col-md-1 no-padding-top control-label" for="groups">Type</label>
+                                        <div class="col-md-2">
+                                            <t t-foreach="type_dict.keys()" t-as="type">
+                                                <t t-if="type == announcement.type">
+                                                    <span class="badge badge-primary" t-esc="type_dict[type]['name']"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </form>
+                          </div>
+                                                </div>
+            
+                        <div class="row">
+                            <div class="col-md-8 text-right">
+                                <div class="text-left col-md-9 m16 mb16">
+                                    <t t-if="attachment_dict">
+                                        <t t-foreach="attachment_dict.keys()" t-as="attach">
+                                            <a class="label label-primary" t-att-href="attach"><t t-esc='attachment_dict[attach]'/></a>
+                                        </t>
+                                    </t>
+                                </div> 
+                            </div>  
+                        </div>
+            
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="col-md-12">
+                                    <span t-field="announcement.picture" t-field-options='{"widget": "image"}'/>
+                                </div>
+                                <div>
+                                    <t t-if="announcement.state == 'draft'">
+                                        <t t-if="announcement.is_user">
+                                            <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
+                                            <!-- <a t-attf-href="/marketplace/announcement/#{announcement.id}/draft_cancel" class="btn btn-primary" role="button">Cancel</a> -->
+                                            <a t-attf-href="/marketplace/announcement/#{announcement.id}/draft_open" class="btn btn-primary" role="button">Publish</a>
+                                        </t>
+                                    </t>
+                                    <t t-if="announcement.state == 'open'">
+                                        <t t-if="announcement.is_user">
+                                            <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
+                                             <!-- <a t-attf-href="/marketplace/announcement/#{announcement.id}/open_cancel" class="btn btn-primary" role="button">Cancel</a>  -->
+                                            <a t-attf-href="/marketplace/announcement/#{announcement.id}/open_done" class="btn btn-primary" role="button">Close</a>
+                                        </t>
+                                    </t>
+                                    <t t-if="announcement.state == 'done'">
+                                        <t t-if="announcement.is_user">
+                                            <a t-attf-href="/marketplace/announcement/#{announcement.id}/done_open" class="btn btn-primary" role="button">Re-open</a>
+                                             <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
+                                        </t>
+                                    </t>
+                                    <t t-if="announcement.state == 'cancel'">
+                                        <t t-if="announcement.is_user">
+                                            <a t-attf-href="/marketplace/announcement/#{announcement.id}/cancel_draft" class="btn btn-primary" role="button">Set draft</a>
+                                             <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+            
+                            <div class="col-md-5">
+                                <h3 class="mt0" t-field="announcement.name"/>
+                                <h5>Description</h5>
+                                <p class="text-justify" t-field="announcement.description"/>
+                            </div>
+            
+                            <div class="col-md-4">
+                                <ul class="wizard pull-right mt0">
+                                    <h5>Announce status</h5>
+                                    <li t-att-class="announcement.state == 'draft' and 'text-primary' or 'text-muted'">Draft<span class="chevron"></span></li>
+                                    <li t-att-class="announcement.state == 'open' and 'text-primary' or 'text-muted'">Published<span class="chevron"></span></li>
+                                    <li t-att-class="announcement.state == 'done' and 'text-primary' or 'text-muted'">Closed<span class="chevron"></span></li>
+                                    <t t-if="announcement.state == 'cancel'">
+                                        <li t-att-class="announcement.state == 'cancel' and 'text-primary' or 'text-muted'">Abort<span class="chevron"></span></li>
+                                    </t>
+                                </ul>
+                                <div class="form-group mt16">
+                                    <div class="col-md-9 pull-right">
+                                      <input type="text" class="form-control invisible" disabled="disabled" t-att-value="author.name"/><t t-esc="author.name" />
+                                    </div>
+                                    <div class="col-md-9 pull-right mt16">
+                                      <span t-field="author.image" t-field-options='{"widget": "image", "class": "thumbnail mb16 announcement-author"}'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <form class="form-horizontal">
+                            <div class="row mt32">
+                                <div class="col-md-3">
+                                    <h4 class="mb16">Where?</h4>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <input type="text" class="form-control" t-att-value="announcement.street" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <input type="text" class="form-control" t-att-value="announcement.street2" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-5 no-padding-right">
+                                            <input type="text" class="form-control" t-att-value="announcement.zip" readonly="readonly"/>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <input type="text" class="form-control" t-att-value="announcement.city" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <t t-if="announcement.country_id == usa_id">
+                                            <div class="col-xs-5 no-padding-right">
+                                                <select disabled="disabled" class="selectpicker form-control">
+                                                    <t t-if="bool(announcement.state_id) == False">
+                                                        <option value="None" selected="selected"></option>
+                                                    </t>
+                                                    <t t-if="bool(announcement.state_id) != False">
+                                                        <option selected="selected"><t t-esc="announcement.state_id.name"/></option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </t>
+                                        <div class="col-xs-12">
+                                            <select disabled="disabled" class="selectpicker form-control">
+                                                <t t-if="bool(announcement.country_id) == False">
+                                                    <option value="None" selected="selected"></option>                      
+                                                </t>
+                                                <t t-if="bool(announcement.country_id) != False">
+                                                    <option selected="selected"><t t-esc="announcement.country_id.name"/></option>                      
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <h4 class="mb16">When?</h4>
+                                
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="date-picker-1">From</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" t-att-value="date_from" placeholder="DD/MM/YYYY" readonly="readonly"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="date-picker-2">To</label>
+                                    <div class="col-md-9">
+                                        <input id="date-picker-2" type="text" class="form-control" t-att-value="date_to" placeholder="DD/MM/YYYY" readonly="readonly"/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                                
+                            <div class="col-md-3">
+                                <h4 class="mb16">Quantity?</h4>
+                                
+                                <div class="form-group">
+                                    <t t-if="announcement.infinite_qty == False">
+                                        <div class="col-md-5 control-label">
+                                            <input id="infinite" disabled="disabled" type="checkbox"/>
+                                            <label for="quantity">Infinite</label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span class="btn btn-primary"><span t-esc="int(announcement.quantity_available)"/> available on <span t-esc="int(announcement.quantity)"/>
+                                             </span>
+                                        </div>
+                                    </t>
+                                    <t t-if="announcement.infinite_qty">
+                                        <div class="col-md-5 control-label">
+                                            <input id="infinite" disabled="disabled" type="checkbox" checked="checked"/>
+                                            <label for="quantity">Infinite</label>
+                                        </div>
+                                    </t>
+                                </div>
+                                
+                                <!-- <div class="form-group">
+                                    <label class="col-md-5 control-label" for="units">Units</label>
+                                    <div class="col-md-7">
+                                        <select id="units" disabled="disabled" class="selectpicker form-control">
+                                            <option><t t-esc="announcement.uom_id.name"/></option>
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <!--
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label" for="available">Available</label>
+                                    <div class="col-md-7">
+
+                                        <input id="available" type="text" class="form-control" placeholder="available" t-att-value="announcement.quantity" readonly="readonly"/>
+                                    </div>
+                                </div>
+                                 -->
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <h4 class="mb16">How much?</h4>
+                                <t t-foreach="announcement.currency_ids" t-as="currency_line">
+                                    <div class="list-item form-group">
+                                        <div class="col-xs-5 no-padding-right">
+                                            <input type="text" class="form-control" placeholder="Amount" t-att-value="currency_line.price_unit" readonly="readonly"/>
+                                        </div>
+                                        <div class="col-xs-5 no-padding-right">
+                                            <select class="selectpicker form-control" disabled="disabled"> 
+                                                <option><t t-esc='currency_line.currency_id.name'/></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </t>
+                          </div>
+                        </div>
+                        </form>
+            
+                    </section>
+
+
+
+                    <t t-ignore="true" t-if="website.user_id == user_id">
+                        <div class="row mt16 text-center">
+                            <a class="btn btn-small btn-primary">Login</a> or <a class="btn btn-small btn-primary">Register</a> to submit a reply
+                        </div>
+                    </t>
+
+                    <t t-if="allow_reply and website.user_id != user_id and announcement.partner_id.id != user_id.partner_id.id">
+
+                        <!-- reply CTA banner -->
+                        <section id="replysection" class="bg-success pt32 pb32">
+
+                            <div class="container">
+
+                                <div id="replycta" class="col-md-2 col-md-offset-5">      
+                                    <a class="btn btn-lg btn-block btn-success btn-announcement-reply" href="#">Make a reply</a>
+                                </div>
+                                
+                                <div id="replyform" class="hidden">
+                                    <!-- START : My reply Section -->
+                                    <h2 class="col-md-12 mt0">My Reply</h2>
+                    
+                                    <!-- START : Reply Form -->
+                                    <form class="form-horizontal" id="my-reply-form" name="my-reply-form" method="post">
+                                        <div class="container">
+                                            <div class="col-md-12 mt32 mb32">
+                                                <div class="row">
+                                                    <!-- START: Reply Left side -->
+                                                    <div class="col-md-4">
+                                                    
+                                                        <div class="col-md-4">
+                                                            <span t-field="user_id.image" t-field-options='{"widget": "image", "class": "thumbnail"}'/>
+                                                        </div>
+                                                        
+                                                        <div class="col-md-8">
+                                                            <h5 t-field="user_id.name"></h5>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END: Reply Left side -->
+                                                    
+                                                    <!-- START: Reply Right side -->
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <div class="col-md-4 control-label">
+                                                                            <label>Quantity</label>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <input name="quantity" type="text" class="form-control" placeholder="" t-att-value="my_reply.quantity"/>
+                                                                            <t t-if="getattr(my_reply, 'errors', False) and 'quantity' in my_reply.errors">
+                                                                                <p class="bg-danger">
+                                                                                    <t t-esc="my_reply.errors['quantity']"/>
+                                                                                </p>
+                                                                            </t>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <div class="col-md-4 control-label">
+                                                                            <label>When?</label>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <input type="text" disabled="disabled" class="form-control" t-att-value="format_date(my_reply.write_date,True)"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="col-md-8">
+                                                                <div class="dynamic-list">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Unit price</th>
+                                                                                <th>Currency</th>
+                                                                                <th>Subtotal</th>
+                                                                                <th></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <t t-if="not my_reply.currency_ids">
+                                                                                <tr class="list-item proposition_price_block">
+                                                                                    <td><input type="text" class="form-control" value="" name="currency_ids[new][0][price_unit]"/></td>
+                                                                                    <td>
+                                                                                        <select name="currency_ids[new][0][currency_id]" class="selectpicker form-control mb16" style="display: none;">
+                                                                                            <t t-foreach="currency_dict.keys()" t-as="currency_id">
+                                                                                                <option t-att-value="currency_id"><t t-esc="currency_dict[currency_id]"/></option>
+                                                                                            </t>
+                                                                                        </select>
+                                                        
+                                                                                    </td>
+                                                                                    <td><input type="text" class="form-control" disabled="disabled" value=""/></td>
+                                                                                </tr>
+                                                                            </t>
+                                                                            <t t-foreach="my_reply.currency_ids" t-as="line">
+                                                                            <tr class="list-item proposition_price_block">
+                                                                                <td><input type="text" class="form-control" t-att-value="line.price_unit" t-att-name="'currency_ids[%s][%s][price_unit]' % (getattr(line, 'is_new', False) and 'new' or 'existing', line.id)"/></td>
+                                                                                <td>
+                                                                                    <select t-att-name="'currency_ids[%s][%s][currency_id]' % (getattr(line, 'is_new', False) and 'new' or 'existing', line.id)" class="selectpicker form-control mb16" style="display: none;">
+                                                                                        <t t-foreach="currency_dict.keys()" t-as="currency_id">
+                                                                                            <option t-att-value="currency_id" t-att-selected="'selected' if line.currency_id.id == currency_id else None"><t t-esc="currency_dict[currency_id]"/></option>
+                                                                                        </t>
+                                                                                    </select>
+                                                    
+                                                                                </td>
+                                                                                <td><input type="text" class="form-control" disabled="disabled" t-att-value="line.subtotal"/></td>
+                                                                                <td><button class="list-remove btn btn-danger"><i class="fa fa-minus"></i></button></td>
+                                                                            </tr>
+                                                                            </t>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <a class="list-add btn btn-small btn-primary mb16 margin-left-10"><i class="fa fa-plus"></i></a>
+                                                                    <t t-if="getattr(my_reply, 'errors', False) and my_reply.errors.currency_ids">
+                                                                        <p class="bg-danger">
+                                                                            <t t-esc="my_reply.errors.currency_ids"/>
+                                                                        </p>
+                                                                    </t>
+                                                                </div>
+                                                            </div>
+                    
+                                                        </div>
+                                                    </div>
+                                                    <!-- END: Reply Right side -->
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-7 clearfix feedback-width">
+                                                        <div class="col-md-12">
+                                                            <h5>Description</h5>
+                                                            <textarea rows="3" style="width:100%;" class="form-control" name="description"><t t-esc="my_reply.description"/></textarea>
+                                                            <div>
+                                                                <t t-if="my_reply.state == 'invoiced'">
+                                                                        <a t-attf-href="/marketplace/reply/#{my_reply.id}/pay" class="btn btn-primary" role="button">Pay</a>
+                                                                </t>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <!--<t t-if="getattr(my_reply, 'already_accepted', False)">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Rat.</th>
+                                                                        <th>Indicat.</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <t t-foreach="vote_types" t-as="vote_type">
+                                                                    <tr class="list-item vote_block">
+                                                                        <td>
+                                                                            <input type="text" class="form-control" disabled="disabled" t-att-value="vote_type.name.name"/>
+                                                                        </td>
+                                                                        <td>
+                                                                            <select class="selectpicker form-control" t-att-name="'vote_lines[%s][vote]' % vote_type.name.id">
+                                                                                <t t-foreach="range(-2,3)" t-as="vote">
+                                                                                    <option t-att-selected="'selected' if len([1 for l in my_vote.line_ids if int(l.vote) == vote and l.type_id.id == vote_type.name.id]) > 0 else ''" t-att-value="vote"><t t-esc="vote"/></option>
+                                                                                </t>
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </t>
+                                                                </tbody>
+                                                            </table>
+                                                        </t>-->
+                                                        <div>
+                                                            <div class="row mt32">
+                                                                <div class="col-md-12">
+                                                                    <!--<t t-if="getattr(my_reply, 'already_accepted', False)">
+                                                                        <label>Feedback</label>
+                                                                        <textarea class="form-control" rows="3" name="vote_comment"><t t-esc="my_vote.comment"/></textarea>
+                                                                    </t>-->
+                                                                    <input type="hidden" name="make_reply" value="1"/>
+                                                                    <a href="#" class="btn col-md-3 pull-right btn-success mt8" onclick="document.getElementById('my-reply-form').submit(); return false;">Add reply</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END : Reply Form -->
+                                </div>
+                                <!-- END : My reply Section -->
+                            </div>
+                        </section>
+                    </t>
+
+
+                    <t t-if="announcement.proposition_ids">
+
+                        <!-- START: Replies section -->
+                        <section class="bg-info pt32">
+                            <div class="container">
+                                <h2 class="col-md-12 mt0">Who has replied?</h2>
+                            </div>
+
+                            <t t-foreach="announcement.proposition_ids" t-as="reply">
+                                <t t-call="website_marketplace.single_reply"/>
+                            </t>
+
+                        </section>
+                    </t>
+
+                </div>
+                <div class="oe_structure"/>
+            </t>
+        </template>
+    </data>
+</openerp>

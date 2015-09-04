@@ -1,0 +1,28 @@
+
+
+.last_articles_snippets a { 
+  text-decoration: none;
+  color: black;
+  border-radius: 3px;
+}
+
+.last_articles_snippets a:hover {
+  background: rgba(150, 150, 220, 0.1) none repeat scroll 0% 0%
+}
+
+.last_articles_snippets a h2,
+.last_articles_snippets a span {
+  display: block;
+  text-align: center;
+}
+
+.last_articles_snippets a span.image {
+  height: 200px;
+}
+
+.last_articles_snippets img { 
+  margin-top:10px!important;
+  margin-bottom:10px!important;
+  width: 250px;
+  max-height: 200px;
+}

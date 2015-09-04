@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- JS includes -->
+    	<template id="javascripts_compiled" inherit_id="website.assets_frontend">
+    		<xpath expr="//script[@src='/website/static/src/js/website.snippets.animation.js']" position="after">
+                <script>
+                    if (!openerp.website.theme)
+                    {
+                        openerp.website.theme = {};
+                        openerp.website.theme.views = {};
+                    }
+                </script>
+                <script src="/website_marketplace/static/src/js/views/website_marketplace.new_announcement.js"></script>
+                <script src="/website_marketplace/static/src/js/views/website_marketplace.edit_announcement.js"></script>
+                <script src="/website_marketplace/static/src/js/views/website_marketplace.view_announcement.js"></script>
+                <script src="/website_marketplace/static/src/js/views/website_marketplace.announcement.js"></script>
+    		</xpath>
+    	</template>
+
+    </data>
+</openerp>
