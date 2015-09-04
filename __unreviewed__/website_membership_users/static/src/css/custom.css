@@ -1,0 +1,19 @@
+div.list-item:not(:first-child) > div.row > div > .list-add.on-first
+{
+    /**/
+    display: none;
+}
+
+div.memberships {
+    text-align: center;
+}
+
+div.memberships button {
+    float: none !important;
+}
+
+button.submit {
+    float: none !important;
+    margin: 0 auto;
+    display: block;
+}

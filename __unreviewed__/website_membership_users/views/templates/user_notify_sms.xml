@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!-- Update Preferences form !-->
+        <record id="view_users_form_simple_modif_sms" model="ir.ui.view">
+            <field name="name">res.users.preferences.form.sms</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+            <data>
+                <field name="email" position="before">
+                    <field name="notify_sms" widget="radio" readonly="0"/>
+                </field>
+            </data>
+            </field>
+        </record>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="email_template.res_partner_opt_out_form"/>
+            <field name="arch" type="xml">
+            <data>
+                <field name="opt_out" position="after">
+                    <field name="notify_sms" widget="radio" readonly="0"/>
+                </field>
+            </data>
+            </field>
+        </record>
+
+        <function model="res.groups" name="update_user_groups_view" />
+
+        <!-- Update user form !-->
+        <record id="view_users_form_mail" model="ir.ui.view">
+            <field name="name">res.users.form.sms</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="signature" position="before">
+                        <field name="notify_sms" widget="radio"/>
+                    </field>
+                    
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>
