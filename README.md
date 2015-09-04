@@ -1,4 +1,4 @@
-![valeureux-wezer-exchange](https://www.wezer.org/website/image/ir.attachment/42_999b2e2/datas)
+![valeureux](http://i.imgur.com/jbF9soZ.png)
 
 WeZer Exchange is an open source cooperation platform built to make businesses and communities more effective. It is a product of Valeureux, “The Factory of Common goods Wealth Actualisation Tools”, which is studying, designing and teaching for many years about cooperation and sharing value.
 
