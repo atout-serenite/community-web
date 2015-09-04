@@ -1,4 +1,4 @@
-
+# Wezer Marketplace module #
 WeZer is an open source cooperation platform built to make businesses and communities more effective. It is a product of Valeureux, “The Factory of Common goods Wealth Actualisation Tools”, which is studying, designing and teaching for many years about cooperation and sharing value.
 
 As a software product, WeZer aims to bring many tools normally found separately into one environment, where they will be more effective, more integrated, and easier to use. As a platform, and a distribution of Odoo (ex Open ERP), anyone is invited to contribute plugins. As a tool, WeZer supports the latest thinking in organisational management and collective intelligence. WeZer is more than a tool, it’s a full device composed by a web app, an ‘implementation journey’, a community and a research program. WeZer is a systemic solution to boost cooperation, to dynamise the We!
@@ -46,5 +46,8 @@ Then go to you odoo webinterface to the module section and start "Update module 
 <br>
 First look for the "Odoo for Communities" and the marketplace module and install them.
 If you need website interface then install "Wezer dependencies" modile
+
+Back-end cames from OCA-vertical community repo
+<br> and website was old community-web repo
 
 
