@@ -19,7 +19,7 @@
                             <t t-if="is_administrator or partner.id == user_id.partner_id.id">
                                 <a class="btn btn-primary mt16 mb16" t-att-href="'/marketplace/profile/edit/%s' % partner.id">Edit</a>
                             </t>
-                            I am <t t-esc="partner.title.name"/> <t t-esc="partner.name"/> - <t t-esc="partner.ref"/>
+                            I am <t t-if="partner.title"><img t-att-src="'/website_membership_users/static/src/img/title_' + str(partner.title.id) + '.png'" style="height: 22px;margin-top: -6px;" /></t> <t t-esc="partner.name"/> - <t t-esc="partner.ref"/>
                         </h2>
                     </div>
                 </div>

@@ -46,5 +46,11 @@
             </field>
         </record>
 
+        <!-- Clean up contacts -->
+        <delete id="base.res_partner_title_ltd" model="res.partner.title"/>
+        <delete id="base.res_partner_title_miss" model="res.partner.title"/>
+        <delete id="base.res_partner_title_sir" model="res.partner.title"/>
+        <delete id="base.res_partner_title_doctor" model="res.partner.title"/>
+        <delete id="base.res_partner_title_prof" model="res.partner.title"/>
     </data>
 </openerp>

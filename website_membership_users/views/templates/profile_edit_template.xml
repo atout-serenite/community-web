@@ -409,7 +409,7 @@
                                 <div class="col-md-2">
                                     <select name="title" id="gender" class="selectpicker form-control">
                                         <t t-foreach="partner_titles" t-as="title">
-                                        <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><t t-esc  ="title[1]"/></option>
+                                        <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><img t-att-src="'/website_membership_users/static/src/img/' + str(title[0]) + '.png'"/><t t-esc="title[1]"/></option>
                                         </t>
                                     </select> 
                                 </div>
