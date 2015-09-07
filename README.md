@@ -48,7 +48,7 @@ git clone http://github.com/ingadhoc/odoo-addons.git
 Then go to you odoo webinterface to the module section and start "Update module list". 
 <br>
 First look for the "Odoo for Communities" and the marketplace module and install them.
-If you need website interface then install "Wezer dependencies" modile
+If you need website interface then install "Wezer dependencies" module
 
 Back-end cames from OCA-vertical community repo
 <br> and website was old community-web repo
