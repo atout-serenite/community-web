@@ -2,7 +2,7 @@
 
 .last_articles_snippets a { 
   text-decoration: none;
-  color: black;
+  color: #428BCA;
   border-radius: 3px;
 }
 
@@ -13,16 +13,23 @@
 .last_articles_snippets a h2,
 .last_articles_snippets a span {
   display: block;
-  text-align: center;
+  text-align: left;
+  max-width: 300px;
+}
+
+.last_articles_snippets a h2 {
+  font-size: 22px;
+  max-width: 300px;
 }
 
 .last_articles_snippets a span.image {
   height: 200px;
+  overflow: hidden;
+  max-width: 275px;
 }
 
 .last_articles_snippets img { 
   margin-top:10px!important;
   margin-bottom:10px!important;
-  width: 250px;
   max-height: 200px;
 }

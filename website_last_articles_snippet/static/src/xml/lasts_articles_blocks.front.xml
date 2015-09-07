@@ -2,16 +2,16 @@
 <templates id="template" xml:space="preserve">
     <t t-name="website_last_articles_snippet.liste_articles">
             <t t-foreach='posts'  t-as='p'>
-                <div class='col-md-6'>
+                <div class='col-md-4'>
                     <a t-att-href="p.slug">
+                        <span class="image">
+                            <span t-if="p.background_image" >
+                                <img t-att-src="p.background_image"/>
+                            </span>
+                        </span>
                         <h2>
                             <span t-esc='p.name' />
                         </h2>             
-                        <span class="image">
-                            <span t-if="p.background_image" >
-                                <img t-att-src="'/web/binary/image?model=blog.post&amp;id=' + p.id + '&amp;field=background_image&amp;resize=600,200'"/>
-                            </span>
-                        </span>
                         <span t-if='p.subtitle != false' t-esc="p.subtitle"/>
                     </a>
                 </div>

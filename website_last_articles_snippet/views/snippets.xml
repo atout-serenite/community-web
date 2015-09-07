@@ -18,21 +18,7 @@
                     <div class="container">
                         <div class="last_articles_snippets row js_get_posts" data-loading="true" data-template="snippet_last_articles.liste_article" contenteditable="false" t-name='contentart'>
                         <!-- TODO: call formating -->
-                            <div class='col-md-12'>
-                                <h1>Titre de la page</h1>
-                                <span class="image">Image de la page</span>
-                                <div class='centent'><span>Contenu de la page</span></div>
-                            </div>
-                            <div class='col-md-6'>
-                                <h1>Titre de la page</h1>
-                                <span class="image">Image de la page</span>
-                                <div class='centent'><span>Contenu de la page</span></div>
-                            </div>
-                            <div class='col-md-6'>
-                                <h1>Titre de la page</h1>
-                                <span class="image">Image de la page</span>
-                                <div class='centent'><span>Contenu de la page</span></div>
-                            </div>
+                            
                         </div>
                     </div>
                 </section>
