@@ -60,7 +60,7 @@ class member_list_controller(http.Controller):
                                                         search_args=[('membership','=','True')], context=context)
 
     @http.route(['/marketplace/member_list/<int:page>', 
-                 '/marketplace/member_list'], type='http', auth="public", website=True)
+                 '/marketplace/member_list'], type='http', auth="user", website=True)
     def route_member_list(self, page=1):
         """ Router for member list page
         """
