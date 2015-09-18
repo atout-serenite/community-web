@@ -1,0 +1,54 @@
+@mixin project-ui-buttons
+{
+	
+	.btn {
+		outline:0 !important;
+		
+		&.loading {
+			background-repeat: no-repeat;
+			background-position: center;
+			text-indent: -9999px;
+			background-image: url('img/btn/spinner.gif');
+		
+			&.btn-primary {
+				background-image: url('img/btn/primary-spinner.gif');
+			}
+			&.btn-info {
+				background-image: url('img/btn/info-spinner.gif');
+			}
+			&.btn-success {
+				background-image: url('img/btn/success-spinner.gif');
+			}
+			&.btn-warning {
+				background-image: url('img/btn/warning-spinner.gif');
+			}
+			&.btn-danger {
+				background-image: url('img/btn/danger-spinner.gif');
+			}
+			&.btn-link {
+				background-image: url('img/btn/link-spinner.gif');
+			}
+		}
+
+		&.btn-file {
+		    position: relative;
+		    overflow: hidden;
+
+		    input[type=file] {
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    min-width: 100%;
+			    min-height: 100%;
+			    font-size: 100px;
+			    text-align: right;
+			    filter: alpha(opacity=0);
+			    opacity: 0;
+			    outline: none;
+			    background: white;
+			    cursor: inherit;
+			    display: block;
+			}
+		}
+	}
+}

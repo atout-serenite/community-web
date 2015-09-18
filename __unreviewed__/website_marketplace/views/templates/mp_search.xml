@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- MarketPlace(Search) Page -->
+        <template id="website_marketplace.mp_search">
+            <t t-call="website.layout">
+                <t t-call="website_marketplace.mp_search_form"/>
+                <div id="wrap" class="container">
+                    <div class="oe_structure">
+                        <section class="clearfix">              
+                            <!-- START: Scrollable -->
+                            <div class="col-md-12 page-header pb8">                                        
+                                <input class='invisible' t-att-value='page' id='npage' />                           
+                                <input class='invisible' t-att-value='page_count' id='page_count' />                 
+                                <input class='invisible' t-att-value="request.session['session_choixmarketplace']" id='choixmarketplace' />   
+
+                                <p class="text-muted text-right"><span name='bigpicture'>big pictures</span> | <span name='grid'>Grid</span> | <span name='liste'>List</span> | <span name='old'>Old</span></p>
+                                <div class="row">
+                                    <div class="row ligne"  style='display:none;'>
+                                            <div class="col-md-12 clearfix" >
+                                                 <div class="row mp_four_liste">
+                                                    <t t-call="website_marketplace.mp_four_item"/>
+                                                </div>
+                                            </div>
+                                        <!-- modification 27 juillet -->
+                                        <!-- START: Our wants -->
+                                        <!--  <div class="col-md-12 clearfix">
+                                            <div class="row">
+                                                <h3 class="text-center page-header mb8">Our Wants</h3>
+                                            </div>
+                                            <t t-foreach="result['wants'] or []" t-as="item">
+                                                <div class="col-md-3 modWants">
+                                                    <t t-call="website_marketplace.mp_four_item"/>
+                                                </div>
+                                            </t>
+                                        </div>  -->
+                                        <!-- END: Our wants -->
+                                         
+                                        <!-- START: Our offers -->
+                                        <!-- <div class="col-md-12 clearfix">
+                                            <div class="row">
+                                                <h3 class="text-center page-header mb8">Our Offers</h3>
+                                            </div>
+                                            <t t-foreach="result['offers'] or []" t-as="item">
+                                                <div class="col-md-3 modOffers">
+                                                    <t t-call="website_marketplace.mp_four_item"/>
+                                                </div>
+                                            </t>
+                                        </div>  -->
+                                    <!-- END: Our offers -->   
+
+                                </div>
+                                <!-- <t t-call="website_marketplace.mp_single_item_parent"/> -->
+                                <!-- END: Our offers -->   
+
+                                </div>
+                                
+                            </div>
+                            <div class="liste_colonne" />
+                            <!-- END: Scrollable -->
+                           <!--  <div class="col-md-12 mt0 mb8" t-if="resultat_choix == 'old'">
+                                <t t-if="page &gt; 1">
+                                    <a t-att-href="prev_url" class="btn text-center btn-primary pull-left">Previous page</a>
+                                </t>
+                                <t t-if="page &lt; page_count">
+                                   <a href="next_url" class="btn text-center btn-primary pull-right page">Next page</a>
+                                </t>
+                            </div> -->
+                            <div class="col-md-12 mt0 mb8" t-if="resultat_choix != 'old'">
+                                <t t-if="page &lt; page_count">
+                                   <a href="javascript:return false;" class="btn text-center btn-primary pull-right page">Next page</a>
+                                </t>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+                
+                <div class="oe_structure">
+                    <section class="bg-success">
+                        <div class="container">
+                            <div class="row">
+                                <h3 class="text-center mt32">Found nothing?</h3>
+                                <div class="col-md-4 col-md-offset-4 mb32">
+                                    <a class="btn btn-lg btn-success btn-block" href="/marketplace/announcement_detail/new">Create your Announcement</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

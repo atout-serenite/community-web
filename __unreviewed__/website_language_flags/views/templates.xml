@@ -1,0 +1,25 @@
+<openerp>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+            <xpath expr="." position="inside">
+              <link rel='stylesheet' href='/website_language_flags/static/src/css/langue_img.css'/>
+            </xpath>
+        </template>
+        <template id="top_menu_flags" inherit_id="website_community_template.layout" name="website_lang_menu_option">
+            <xpath expr="//div[@id='bs-example-navbar-collapse-1']//ul[position()=last()]" position="before">
+               <ul class="list-inline bt_langue" t-if="(request.website_multilang and len(languages) &gt; 1)">
+                    <li t-foreach="languages" t-as="language">
+                        <a
+                            t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=language[0])"
+                            t-att-data-default-lang="editable and 'true' if language[0] == website.default_lang_code else None"
+                            t-att-data-lang="language[0]"
+                            class="js_change_lang"
+                        >
+                        <img t-att-alt="language[1]"  t-att-src="'/website_language_flags/static/src/img/flags/22x14/' + language[0] + '.png'" />
+                        </a>
+                    </li>
+                </ul>
+            </xpath>
+        </template>
+    </data>
+</openerp>

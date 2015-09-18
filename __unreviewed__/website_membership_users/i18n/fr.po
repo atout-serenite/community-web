@@ -1,0 +1,412 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#    * website_membership_users
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-27 12:13+0000\n"
+"PO-Revision-Date: 2014-11-27 12:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+msgid "+33 123 45 67 890"
+msgstr "+33 123 45 67 890"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_wants_and_offers
+#: view:website:website_membership_users.profile_view
+msgid "Add new Offer"
+msgstr "Ajouter une nouvelle Offre"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_wants_and_offers
+#: view:website:website_membership_users.profile_view
+msgid "Add new Want"
+msgstr "Ajouter une nouvelle Demande"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "All"
+msgstr "Tous"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+#: view:website:website_membership_users.single_member_view
+msgid "Amount"
+msgstr "Montant"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_resources
+#: view:website:website_membership_users.profile_view
+msgid "Balance"
+msgstr "Solde"
+
+#. module: website_membership_users
+#: code:addons/website_membership_users/controllers/profile.py:312
+#, python-format
+msgid "Balance amount should be a float (integer) number."
+msgstr "Le solde devrait être un nombre"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Birthdate"
+msgstr "Date de naissance"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "City"
+msgstr "Ville"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Contact info"
+msgstr "Informations de contact"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Country"
+msgstr "Pays"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.single_member_view
+msgid "Curreny"
+msgstr "Devise"
+
+#. module: website_membership_users
+#: code:addons/website_membership_users/controllers/profile.py:301
+#, python-format
+msgid "Date format is not correct."
+msgstr "Le format de date est incorrect"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_view
+msgid "Edit"
+msgstr "Modifier"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Email"
+msgstr "Email"
+
+#. module: website_membership_users
+#: code:addons/website_membership_users/controllers/profile.py:296
+#, python-format
+msgid "Email is not correct."
+msgstr "L’email est incorrect"
+
+#. module: website_membership_users
+#: field:marketplace.announcement,date_from:0
+#: view:website:website_membership_users.member_list_view
+msgid "From"
+msgstr "De"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "GSM"
+msgstr "Mobile"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Group"
+msgstr "Groupe"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Home"
+msgstr "Accueil"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "How many?"
+msgstr "Combien ?"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "I'm searching"
+msgstr "Je recherche"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "In"
+msgstr "Dans"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_resources
+#: view:website:website_membership_users.profile_view
+msgid "Interests"
+msgstr "Centre d’intérêts"
+
+#. module: website_membership_users
+#: model:ir.model,name:website_membership_users.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Ligne de facture"
+
+#. module: website_membership_users
+#: code:addons/website_membership_users/controllers/profile.py:307
+#, python-format
+msgid "Limit amount should be a float (integer) number."
+msgstr "Le montant Limite devrait un nombre"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Location"
+msgstr "Localisation"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "My Activity"
+msgstr "Mes Activités"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_groups
+msgid "My Groups"
+msgstr "Mes Groupes"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_wants_and_offers
+#: view:website:website_membership_users.profile_view
+msgid "My Offers"
+msgstr "Mes Offres"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_resources
+#: view:website:website_membership_users.profile_view
+msgid "My Resources"
+msgstr "Mes Ressources"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_wants_and_offers
+#: view:website:website_membership_users.profile_view
+msgid "My Wants"
+msgstr "Mes Demandes"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "My last exchanges"
+msgstr "Mes échanges récents"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Name"
+msgstr "Nom"
+
+#. module: website_membership_users
+#: code:addons/website_membership_users/controllers/profile.py:293
+#, python-format
+msgid "Name cannot be empty."
+msgstr "Le nom ne peut rester vide"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Next page"
+msgstr "Page suivante"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+msgid "Nothing Selected"
+msgstr "Rien n’est sélectionné"
+
+#. module: website_membership_users
+#: model:ir.model,name:website_membership_users.model_marketplace_announcement
+msgid "Offer/Want"
+msgstr "Offre/Demande"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Our Members"
+msgstr "Nos Membres"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "Paid"
+msgstr "Payée"
+
+#. module: website_membership_users
+#: code:addons/website_membership_users/controllers/profile.py:571
+#, python-format
+msgid "Please read terms and make decision"
+msgstr "S’il vous plait, lisez les conditions et prennez votre décision"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Zip code"
+msgstr "Code postal"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Prefix"
+msgstr "Prefixe"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Previous page"
+msgstr "Page précédente"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_view
+msgid "Profile has been saved successfully"
+msgstr "Le profil a été enregistré avec succès"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit
+msgid "Profile information"
+msgstr "Information du profil"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit
+msgid "Save"
+msgstr "Sauver"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Search"
+msgstr "Recherche"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_resources
+#: view:website:website_membership_users.profile_view
+msgid "Skills"
+msgstr "Compétences"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "State"
+msgstr "Etat"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+msgid "Street"
+msgstr "Rue"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Born :"
+msgstr "Né :"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Street #1"
+msgstr "Rue 1"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Street #2"
+msgstr "Rue 2"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Tag"
+msgstr "Mot clé"
+
+#. module: website_membership_users
+#: field:marketplace.announcement,date_to:0
+#: view:website:website_membership_users.member_list_view
+msgid "To"
+msgstr "A"
+
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "Type"
+msgstr "Type"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+msgid "Upload new image"
+msgstr "Charger une nouvelle image"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "What"
+msgstr "Quoi"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "When"
+msgstr "Quand"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "Where"
+msgstr "Où"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "Where?"
+msgstr "Où"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_activity
+#: view:website:website_membership_users.profile_view
+msgid "With who"
+msgstr "Avec qui"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+msgid "your@email.com"
+msgstr "votre@email.com"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Receive our news"
+msgstr "Recevoir les informations"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Receive our sms"
+msgstr "Recevoir les SMS"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Yes"
+msgstr "Oui"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "No"
+msgstr "Non"
+
+#. module: website_membership_users
+#: field:res.partner,notify_sms:0,
+msgid "Receive Inbox Notifications by Sms"
+msgstr "Recevoir les notifications par SMS"
+
+#. module: website_membership_users
+#: view:website:website_membership_users.profile_edit_general
+#: view:website:website_membership_users.profile_view
+msgid "Postalcode"
+msgstr "Code postal"

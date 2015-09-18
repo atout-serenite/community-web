@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_community_home
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-27 12:10+0000\n"
+"PO-Revision-Date: 2014-11-27 12:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "A title homepage"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Diagram"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Last events"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Next page"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Not a member yet?"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Our Offers"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Our Wants"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Our reference"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Previous page"
+msgstr ""
+
+#. module: website_community_home
+#: view:website:website_community_home.homepage
+msgid "Sign up"
+msgstr ""
+

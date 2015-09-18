@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+            <xpath expr="." position="inside">
+              <link rel='stylesheet' href='/website_membership_users/static/src/css/el_admin.css'/>
+            </xpath>
+        </template>
+        <template id="profile_edit_general">
+            <div class="container">
+                <div class="col-md-2">
+                    <img t-att-src="images['image_big']" class="img img-responsive thumbnail"/>
+                    <span class="btn btn-primary btn-file">
+                        Upload new image 
+                        <input id="new_image" type="file" name="image"/>
+                    </span>  
+                    <div class="files-to-upload mt8 mb16"/>
+                    <div class="mb32">
+                        <img t-att-src="images['image_small']" class="img img-circle" width="40" height="40"/>
+                        <div class="clearfix"></div>
+                        <t t-if="membership">
+                            <span class="badge badge-success mt4"><t t-esc="membership.name"/></span>
+                        </t>
+                        
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-md-12 control-label test-left" for="birthdate">Birthdate</label>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input name="birthdate" id="birthdate" t-att-value="profile['partner']['birthdate']" t-att-placeholder="date_placeholder" type="text" class="date-picker-profil-edit form-control" />
+                                    <label for="birthdate" class="input-group-addon btn btn-default"><span class="fa fa-calendar"></span></label>
+                                </div>
+                                <t t-if="'birthdate' in errors">
+                                    <span class="bg-danger">
+                                        <t t-esc="errors['birthdate']"/>
+                                    </span>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3 control-label" for="street1">Street #1</label>
+                                <div class="col-md-9">
+                                    <input name="street" id="street1" t-att-value="profile['partner']['street']" type="text" class="form-control" placeholder="Street"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3 control-label" for="street2">Street #2</label>
+                                <div class="col-md-9">
+                                    <input name="street2" id="street2" t-att-value="profile['partner']['street2']" type="text" class="form-control" placeholder="Street"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3 control-label" for="zip">Postalcode</label>
+                                <div class="col-md-9">
+                                    <input name="zip" id="zip" t-att-value="profile['partner']['zip']" type="text" class="form-control" placeholder="Postalcode"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3 control-label" for="city">City</label>
+                                <div class="col-md-9">
+                                    <input name="city" id="city" t-att-value="profile['partner']['city']" type="text" class="form-control" placeholder="City"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3 control-label" for="state">State</label>
+                                <div class="col-md-9">
+                                    <select name="state_id" id="state" class="selectpicker form-control">
+                                        <option value="0">Nothing Selected</option>
+                                        <t t-foreach="states" t-as="state">
+                                            <option t-att-value="state[0]" t-att-selected="'selected' if profile['partner']['state_id'] == state[0] else ''"><t t-esc="state[1]"/></option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3 control-label" for="country">Country</label>
+                                <div class="col-md-9">
+                                    <select name="country_id" id="country" class="selectpicker form-control">
+                                        <option value="0">Nothing Selected</option>
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country[0]" t-att-selected="'selected' if profile['partner']['country_id'] == country[0] else ''"><t t-esc="country[1]"/></option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt32 mb16"><h4>Contact info</h4></div>
+                    <div class="col-md-5 mb32">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="email">Email</label>
+                                <div class="col-md-8">
+                                    <input name="email" id="email" t-att-value="profile['partner']['email']" type="email" class="form-control" placeholder="your@email.com"/>
+                                    <t t-if="'email' in errors">
+                                        <span class="bg-danger">
+                                            <t t-esc="errors['email']"/>
+                                        </span>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4  control-label"  for="notify_email">Receive our news</label>
+                                <div class="col-md-8 float-left-el">
+                                        <input name="notify_email" id="notify_email" value="always" t-if="profile['partner']['notify_email'] == 'always'" checked='checked' type="radio" class="form-control"/>  
+                                        <input name="notify_email" id="notify_email" value="always" t-if="profile['partner']['notify_email'] != 'always'" type="radio"  class="form-control"/>
+                                        <span>Yes</span>
+                                        <input t-if="profile['partner']['notify_email'] == 'none'" checked='checked'   name="notify_email" id="notify_email" value="none" type="radio" class="form-control"/>
+                                        <input t-if="profile['partner']['notify_email'] != 'none'" name="notify_email" id="notify_email" value="none" type="radio" class="form-control"/>
+                                        <span>No</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="gsm">GSM</label>
+                                <div class="col-md-8">
+                                    <input name="mobile" id="gsm" t-att-value="profile['partner']['mobile']" type="text" class="form-control" placeholder="+33 61 12 23 345"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4  control-label"  for="notify_email">Receive our sms</label>
+                                <div class="col-md-8 float-left-el">
+                                    <input name="notify_sms" id="notify_sms" value="yes" t-if="profile['partner']['notify_sms'] == 'yes'" checked='checked' type="radio" class="form-control"/>  
+                                    <input name="notify_sms" id="notify_sms" value="yes" t-if="profile['partner']['notify_sms'] != 'yes'" type="radio"  class="form-control"/> 
+                                    <span>Yes</span>
+                                    <input t-if="profile['partner']['notify_sms'] == 'no'" checked='checked'   name="notify_sms" id="notify_sms" value="no" type="radio" class="form-control"/>
+                                    <input t-if="profile['partner']['notify_sms'] != 'no'" name="notify_sms" id="notify_sms" value="no" type="radio" class="form-control"/>
+                                    <span>No</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="home">Home</label>
+                                <div class="col-md-8">
+                                    <input name="phone" id="home" t-att-value="profile['partner']['phone']" type="text" class="form-control" placeholder="+33 123 45 67 890"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="profile_edit_resources">
+            <section class="bg-gray pt32 pb32">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h3 class="mb32">My Resources</h3>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Skills</label>
+                                        <div class="col-md-8 dynamic-list">
+                                            <t t-foreach="['existing', 'new']" t-as="key">
+                                                <t t-foreach="profile['skills'][key]" t-as="skill">
+                                                    <div class="row">
+                                                        <div class="list-item col-md-12 skill_category_block">
+                                                            <div class="row">
+                                                                <div class="col-xs-10 no-padding-right">
+                                                                    <input t-att-name="('skills[%s][%s]' % (key, skill['id']))" class="form-control mb16 skill_category" type="text" t-att-value="skill['name']"/>
+                                                                </div>
+                                                                <div class="col-xs-2 no-padding-right">
+                                                                    <button class="list-remove btn btn-danger"><i class="fa fa-minus"></i></button>
+                                                                    <a href="#" class="list-add btn btn-small btn-primary mb16 on-first"><i class="fa fa-plus"></i></a>
+    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Interests</label>
+                                        <div class="col-md-8 dynamic-list">
+                                            <t t-foreach="['existing', 'new']" t-as="key">
+                                                <t t-foreach="profile['interests'][key]" t-as="tag">
+                                                    <div class="row">
+                                                        <div class="list-item col-md-12 skill_tag_block">
+                                                            <div class="row">
+                                                                <div class="col-xs-10 no-padding-right">
+                                                                    <input t-att-name="('tags[%s][%s]' % (key, tag['id']))" class="form-control mb16 skill_tag" t-att-value="tag['name']" type="text" />
+                                                                </div>
+                                                                <div class="col-xs-2 no-padding-right">
+                                                                    <button class="list-remove btn btn-danger"><i class="fa fa-minus"></i></button>
+                                                                    <a href="#" class="list-add btn btn-small btn-primary mb16 on-first"><i class="fa fa-plus"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <t t-if="partner.see_balance">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2">Balance</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-foreach="partner.wallet_balance_ids" t-as="balance">
+                                                            <tr>
+                                                                <td><t t-esc="balance.available"/></td>
+                                                                <td><t t-esc="balance.currency_id and balance.currency_id.name"/></td>
+                                                            </tr>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="profile_edit_memberships">
+            <section class="pt32 pb32">
+                <t t-foreach="memberships" t-as="categorie">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h3 class="mb32"><t t-esc="memberships[categorie]['name']"/></h3>
+                        </div>
+                    </div>
+                    <div class="container memberships" >
+                        <t t-foreach="memberships[categorie]['products']" t-as="product">
+                            <div class="col-md-4">
+                                <h3><t t-esc="product.display_name"/></h3>
+                                <p><span itemprop="image" t-field="product.image" t-field-options='{"widget": "image", "class": "product_detail_img"}'/></p>
+                                <p><t t-esc="product.description_sale"/></p>
+                                <p><t t-esc="product.list_price"/><t t-esc="product.sale_price_currency_id.symbol"/></p>
+                                
+                                <p><button type="button" t-att-data-id="product.id" class="btn btn-success pull-right mt16 btn-nolink">Subscribe</button></p>
+                            </div>
+
+                        </t>
+                    </div>
+                </t>
+            </section>
+        </template>
+
+        <template id="profile_edit_wants_and_offers">
+            <!-- marketplace listing -->
+            <section class="pt32 bg-success">
+                <div class="container">
+                <!-- Our Wants column -->
+                <div class="col-md-6">
+                    <div class="col-md-12 mb16">
+                        <a href="/marketplace/announcement_detail/new" class="btn btn-success pull-right mt16 btn-nolink">Add new Want</a>
+                        <h3 class="pull-left">My Wants</h3>
+                    </div>
+                    <t t-foreach="wants" t-as="item">
+                        <!-- single item -->
+                        <div class="col-md-12">
+                            <t t-call="website_marketplace.mp_single_item"/>
+                        </div>
+                        <!-- /single item -->
+                    </t>
+                </div>
+                <!-- /Our Wants column -->
+
+                <!-- Our Offers column -->
+                <div class="col-md-6">
+                    <div class="col-md-12 mb16">
+                        <a href="/marketplace/announcement_detail/new" class="btn btn-success pull-right mt16 btn-nolink">Add new Offer</a>
+                        <h3 class="pull-left">My Offers</h3>
+                    </div>
+                    <t t-foreach="offers" t-as="item">
+                        <!-- single item -->
+                        <div class="col-md-12">
+                            <t t-call="website_marketplace.mp_single_item"/>
+                        </div>
+                        <!-- /single item -->
+                    </t>
+                </div>
+                <!-- /Our Offers column -->
+                </div>
+            </section>
+            <!-- /marketplace listing -->
+        </template>
+
+        <template id="profile_edit_activity">
+            <!-- activity -->
+            <section class="pb32">
+                <div class="container">
+                    <div class="col-md-12 mt32">
+                        <h2 class="mb32">My Activity</h2>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>My last exchanges</h3>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>What</th>
+                                            <th>How many</th>
+                                            <th>With who</th>
+                                            <th>When</th>
+                                            <th>Where</th>
+                                            <th>Paid</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="last_exchanges" t-as="exchange">
+                                            <tr>
+                                                <td><t t-esc="exchange.type"/></td>
+                                                <td><t t-esc="exchange.announcement_id.name"/></td>
+                                                <td><t t-esc="exchange.quantity"/> <t t-esc="exchange.uom_id.name"/></td>
+                                                <td>
+                                                    <t t-if="exchange.announcement_id.partner_id == partner.id">
+                                                        <t t-esc="exchange.receiver_id.name"/>
+                                                    </t>
+                                                    <t t-if="not exchange.announcement_id.partner_id == partner.id">
+                                                        <t t-esc="exchange.sender_id.name"/>
+                                                    </t>
+                                                </td>
+                                                <td><t t-esc="exchange.write_date"/></td>
+                                                <td><t t-esc="exchange.announcement_id.city"/></td>
+                                                <td><t t-esc="exchange.total"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /activity -->
+        </template>
+
+        <template id="profile_edit_groups">
+            <section class="bg-gray-darker pt32 pb32">
+                <div class="container">
+                    <div class="col-md-12 mt32">
+                        <h3 class="mb32">My Groups</h3>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <t t-foreach="groups" t-as="group">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label"><t t-esc="group.name"/></label>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <!-- Profile Edit Page -->
+        <template id="profile_edit">
+            <t t-call="website.layout">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h2 class="mt32 mb32 row">
+                                <div class="col-md-2">I am</div>
+                                <div class="col-md-2">
+                                    <select name="title" id="gender" class="selectpicker form-control">
+                                        <t t-foreach="partner_titles" t-as="title">
+                                        <option t-att-value="title[0]" t-att-selected="'selected' if profile['partner']['title'] == title[0] else ''"><t t-esc  ="title[1]"/></option>
+                                        </t>
+                                    </select> 
+                                </div>
+                                <div class="col-md-4">
+                                <input name="name" id="firstname" t-att-value="profile['partner']['name']" type="text" class="form-control" placeholder="Name"  />
+                                    <t t-if="'name' in errors">
+                                        <p class="bg-danger">
+                                            <t t-esc="errors['name']"/>
+                                        </p>
+                                    </t>
+                                </div>
+                                <div class="col-md-4">
+                                    <input name="ref" id="ref" t-att-value="profile['partner']['ref']" type="text" class="form-control" placeholder="Reference"/>
+                                    <t t-if="'ref' in errors">
+                                        <p class="bg-danger">
+                                            <t t-esc="errors['ref']"/>
+                                        </p>
+                                    </t>
+                                </div>
+                            </h2>
+                        </div>
+                    </div>
+                    <t t-call="website_membership_users.profile_edit_general"/>
+                    <t t-call="website_membership_users.profile_edit_resources"/>
+                    <t t-call="website_membership_users.profile_edit_memberships" />
+                    <t t-call="website_membership_users.profile_edit_groups"/>
+                    <t t-call="website_membership_users.profile_edit_wants_and_offers"/>
+                    <t t-call="website_membership_users.profile_edit_activity"/>
+                    <section class="pb32">
+                        <div class="container">
+                            <div class="col-md-12 mt32">
+                                <button type="submit" class="btn btn-success pull-right mt16 btn-nolink submit" name="save_form">Save</button>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </t>
+
+
+        </template>
+    </data>
+</openerp>

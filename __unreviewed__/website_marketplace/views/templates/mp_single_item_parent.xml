@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Template of single offer/want to call in search result block or somewhere else -->
+        <template id="mp_single_item_parent">
+            <div class="liste_colonne">
+                <!-- START: Our wants -->
+                <div class="col-md-6 clearfix">
+                   <!--  <t t-if="page &gt; 1">
+                        <a t-att-href="prev_url" class="btn text-center btn-primary pull-left">Previous page</a>
+                    </t> -->
+                    <div class="row" t-if='page == 1'>
+                        <h3 class="text-center page-header mb8">Our Wants</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <t t-foreach="result['wants'] or []" t-as="item">
+                            <t t-call="website_marketplace.mp_single_item"/>
+                        </t>
+                    </div> 
+                </div> 
+                <!-- END: Our wants -->
+                 
+                <!-- START: Our offers -->
+                <div class="col-md-6 clearfix">
+                    <!-- <t t-if="page &lt; page_count">
+                        <a t-att-href="next_url" class="btn text-center btn-primary pull-right">Next page</a>
+                    </t> -->
+                    <div class="row"  t-if='page == 1'>
+                        <h3 class="text-center page-header mb8">Our Offers</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <t t-foreach="result['offers'] or []" t-as="item">
+                            <t t-call="website_marketplace.mp_single_item"/>
+                        </t>
+                    </div> 
+                </div> 
+            </div>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="member_list_view" name="Member list">
+            <t t-call="website.layout">
+                <!-- START: Search Jumbotron -->
+                <form action="/marketplace/member_list/search" method="get" id="searchform" class="form">
+                        <section class="jumbotron pt8 mb0 pb8">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-2 pt0">
+                                    <h4 class="pull-right">I'm searching</h4>
+                                </div>
+                                <div class="col-md-8 pt0">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <input name="search_name" type="search" class="form-control" placeholder="Search" t-att-value="search_param.get('search_name')"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- filters -->
+                        <div class="searchfilter">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-2 col-md-offset-1">
+                                        <div class="col-md-12 text-center">
+                                            <label class="control-label">Where?</label>
+                                        </div>
+                                        <div class="col-md-12 form-group mt8">
+                                            <div class="row">
+                                                <input id="filter-where1" type="text" class="form-typeahead form-control mb4" placeholder="Location" data-group="location" data-index="0" data-provide="typeahead" name="location" t-att-value="search_param.get('location')"/>
+                                            </div>
+                                        </div>
+                                                
+                                    </div>
+    
+                                    <div class="col-md-2">
+                                        <div class="col-md-12 text-center">
+                                            <label class="control-label">Group</label>
+                                        </div>
+                                        <div class="col-md-12 form-group mt8">
+                                            <div class="row">
+                                                <input id="filter-who1" type="text" class="form-typeahead form-control mb4" placeholder="Group" data-group="who" data-index="0" data-provide="typeahead" name="group" t-att-value="search_param.get('group')"/>
+                                            </div>
+                                        </div>
+                                                
+                                    </div>
+    
+                                    <div class="col-md-2">
+                                        <div class="col-md-12 text-center">
+                                            <label class="control-label">Tag</label>
+                                        </div>
+                                        <div class="col-md-12 form-group mt8">
+                                            <div class="row">
+                                                <input id="filter-tag1" type="text" class="form-typeahead form-control mb4" placeholder="Tag" data-group="tag" data-index="0" data-provide="typeahead" name="tag" t-att-value="search_param.get('tag')"/>
+                                            </div>
+                                        </div>
+                                                
+                                    </div>
+    
+                                    <div class="col-md-2">
+                                        <div class="col-md-12 text-center">
+                                            <label class="control-label">Group</label>
+                                        </div>
+                                        <div class="col-md-12 form-group mt4">
+                                            <div class="row">
+                                                <t t-foreach='membership_dict.keys()' t-as='membership'>
+                                                    <div class="input-group mb4">
+                                                        <span class="input-group-addon">
+                                                            <input type='checkbox' t-att-name="'membership_%s' % membership" t-att-checked="search_param.get('membership_%s' % membership)"/>
+                                                        </span>
+                                                        <input type="text" class="form-control" t-att-value="membership_dict[membership]" readonly="readonly"/>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <div class="text-center">
+                                            <div class="col-md-12 text-center">
+                                                <label class="control-label">Amount</label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <div class="row">
+                                                    <input type="text" placeholder="From" class="form-control mb4" name='amount_from' t-att-value="search_param.get('amount_from')"/>
+                                                    <input type="text" placeholder="To" class="form-control mb4" name='amount_to' t-att-value="search_param.get('amount_to')"/>
+                                                    <select class="selectpicker form-control" data-placeholder="Currency" name="currency_id">
+                                                        <option value="0">All</option>
+                                                        <t t-foreach="currency_dict.keys()" t-as='currency_id'>
+                                                            <option t-att-value='currency_id' t-att-selected="'selected' if search_param.get('currency_id') and int(search_param.get('currency_id')) == currency_id else ''" t-esc="currency_dict[currency_id]"/>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-1">
+                                        <div class="col-md-12">
+                                            <label class="control-label"> </label>
+                                        </div>
+                                        <button class="btn btn-primary mt20" type="submit"><span class="fa fa-search"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /filters -->
+                    </section>
+                </form>
+
+                <!-- members listing -->
+                <section class="bg-info">
+                    <div class="container pt32 pb32">
+
+                        <div class="col-md-12"><h2>Our Members</h2></div>
+                        
+                        <div class="col-md-12">
+
+                            <div id="members-list">
+                                <t t-foreach="member_list" t-as="member">
+
+                                    <t t-call="website_membership_users.single_member_view"/>
+
+                                </t>
+                            </div>
+                        
+                        </div>   
+
+                        <div class="col-md-12 mt16 mb32">
+                            <t t-if="page &gt; 1">
+                                <a t-att-href="prev_url" class="btn text-center btn-primary pull-left">Previous page</a>
+                            </t>
+                            <t t-if="page &lt; page_count">
+                               <a t-att-href="next_url" class="btn text-center btn-primary pull-right">Next page</a>
+                            </t>
+                        </div>         
+
+                    </div>
+                </section>
+                <!-- /members listing -->
+            </t>
+        </template>
+    </data>
+</openerp>

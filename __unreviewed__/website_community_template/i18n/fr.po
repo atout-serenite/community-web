@@ -1,0 +1,402 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#    * website_community_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-27 12:12+0000\n"
+"PO-Revision-Date: 2014-11-27 12:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid ", common good tools fabrics, based on"
+msgstr ", fabrique d'outils coopératifs, basé sur"
+
+#. module: website_community_template
+#: view:website:website.404
+msgid "404 Not Found"
+msgstr "404 non trouvé"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "About Us"
+msgstr "A propos de Nous"
+
+#. module: website_community_template
+#: view:website:auth_signup.reset_password
+#: view:website:auth_signup.signup
+msgid "Back to Login"
+msgstr "Retour à la connexion"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_membership
+msgid "Become a"
+msgstr "Devenir un"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Blog"
+msgstr "Blog"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Contact Us"
+msgstr "Contactez nous"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "Currency"
+msgstr "Devise"
+
+#. module: website_community_template
+#: view:website:web.login
+msgid "Email address"
+msgstr "Adresse email"
+
+#. module: website_community_template
+#: view:website:web.login
+msgid "Powered by"
+msgstr "Basé sur"
+
+#. module: website_community_template
+#: view:website:auth_signup.reset_password
+msgid "Email address or username"
+msgstr "Adresse email ou nom d’utilisateur"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "FAQ"
+msgstr "FAQ"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Facebook"
+msgstr "Facebook"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Feature Tour"
+msgstr "Visite guidée des fonctionnalités"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Follow Us"
+msgstr "Suivez nous"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "From"
+msgstr "De"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "From Who?"
+msgstr "De Qui ?"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "From who?"
+msgstr "De Qui ?"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "To"
+msgstr "A"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Home"
+msgstr "Accueil"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "How It Works"
+msgstr "Comment cela fonctionne"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "How much?"
+msgstr "Combien ?"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_part_2
+msgid "I agree with the"
+msgstr "J’accepte le"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_part_2
+msgid "I am"
+msgstr "Je suis"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "I'm searching"
+msgstr "Je recherche"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "Invite your friends to join our network"
+msgstr "Inviter vos amis à rejoindre notre réseau"
+
+#. module: website_community_template
+#: view:website:website.404
+#: view:website:website.layout
+msgid "Learn more"
+msgstr "En savoir plus"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Legal"
+msgstr "Légal"
+
+#. module: website_community_template
+#: view:website:web.login
+msgid "Log in"
+msgstr "Se connecter"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Market Place"
+msgstr "Place de Marché"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "Market Place Search"
+msgstr "Recherche sur la Place de Marché"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "My Profile"
+msgstr "Mon profil"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_membership
+msgid "My membership"
+msgstr "Mon adhésion"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Odoo"
+msgstr "Odoo"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Create new announce"
+msgstr "Créer une nouvelle annonce"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "View other membrers"
+msgstr "Voir les autres membres"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "My account"
+msgstr "Mon compte"
+
+#. module: website_community_template
+#: view:website:website.404
+msgid "Oops!"
+msgstr "Zut !"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Our Activity"
+msgstr "Nos activités"
+
+#. module: website_community_template
+#: view:website:web.login
+#: view:website:website_community_template.signup_fields
+msgid "Password"
+msgstr "Mot de passe"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_part_2
+msgid "Register"
+msgstr "S’enregistrer"
+
+#. module: website_community_template
+#: view:website:website_community_template.signup_fields
+msgid "Repeat Password"
+msgstr "Répéter le mot de passe"
+
+#. module: website_community_template
+#: view:website:auth_signup.reset_password
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "Search"
+msgstr "Rechercher"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "See the"
+msgstr "Voir le"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Set It Up"
+msgstr "Configurer le"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Sign Up"
+msgstr "Souscrire"
+
+#. module: website_community_template
+#: view:website:website.404
+msgid "Sign in"
+msgstr "S’enregistrer"
+
+#. module: website_community_template
+#: view:website:auth_signup.signup
+#: view:website:website.404
+msgid "Sign up"
+msgstr "Souscrire"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Sign up now, it's FREE"
+msgstr "Souscriver maintenant, c’est GRATUIT"
+
+#. module: website_community_template
+#: view:website:website.404
+msgid "Sorry, we weren't able to find the page you requested"
+msgstr "Désolé, nous n’avons pas pu trouver la page requise"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Support"
+msgstr "Support"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Terms of Service"
+msgstr "Conditions d'utilisation"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "To find"
+msgstr "Trouver"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "To get"
+msgstr "Recevoir"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "To offer"
+msgstr "Donner"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Toggle navigation"
+msgstr "Basculer la navigation"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Twitter"
+msgstr "Twitter"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Valeureux"
+msgstr "Valeureux"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Wezer, designed by"
+msgstr "Wezer, conçu par"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "When?"
+msgstr "Quand"
+
+#. module: website_community_template
+#: view:website:website.snippets
+msgid "Where?"
+msgstr "Où"
+
+#. module: website_community_template
+#: view:website:website_community_template.signup_fields
+msgid "Your email"
+msgstr "Votre email"
+
+#. module: website_community_template
+#: view:website:website_community_template.signup_fields
+msgid "Your name"
+msgstr "Votre nom"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_part_2
+msgid "terms and conditions"
+msgstr "Conditions d’utilisation"
+
+#. module: website_community_template
+#: view:website:website_community_template.register_membership
+msgid "— You are a"
+msgstr "— Vous êtes un"
+
+#. module: auth_signup
+#: code:addons/auth_signup/controllers/main.py:57
+#, python-format
+msgid "Passwords do not match; please retype them."
+msgstr "Les mots de passent ne correspondent pas, veuillez les resaisir."
+
+#. module: auth_signup
+#: code:extensions/weezer/website_community_template/controllers/main.py:34
+#, python-format
+msgid "Please check your email address and password"
+msgstr "Les mots de passent ne correspondent pas, veuillez les resaisir."
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Last activity date"
+msgstr "Dernières mises à jour"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Unanswered"
+msgstr "En cours"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Newest"
+msgstr "Plus récentes"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Most answered"
+msgstr "Plus répondues"
+
+#. module: website_forum
+#: view:website:website_forum.forum_index
+msgid "Most voted"
+msgstr "Plus intéressantes"
